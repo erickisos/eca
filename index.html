@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="ECA - AI pair programming capabilities in any editor">
+        <meta name="description" content="ECA (Editor Code Assistant) is a free, open-source AI coding assistant that works with any editor — VS Code, Emacs, Neovim, IntelliJ, Desktop, CLI — and any LLM provider like OpenAI, Anthropic, Copilot, and Ollama. One config, every editor.">
       
       
       
@@ -14,7 +14,7 @@
       
       
       
-        <link rel="next" href="configuration/">
+        <link rel="next" href="install/">
       
       
       <link rel="icon" href="images/logo.svg">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Overview - ECA - Editor Code Assistant</title>
+        <title>ECA - Free Open Source AI Pair Programming in Any Editor - ECA - Editor Code Assistant</title>
       
     
     
@@ -40,10 +40,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Roboto Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&display=fallback">
     
       <link rel="stylesheet" href="stylesheets/layout.css">
     
@@ -64,6 +66,1566 @@
     
     
     
+
+
+
+
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="ECA - Free Open Source AI Pair Programming in Any Editor" />
+<meta property="og:description" content="ECA (Editor Code Assistant) is a free, open-source AI coding assistant that works with any editor — VS Code, Emacs, Neovim, IntelliJ, Desktop, CLI — and any LLM provider like OpenAI, Anthropic, Copilot, and Ollama. One config, every editor." />
+<meta property="og:url" content="https://eca.dev/" />
+<meta property="og:image" content="https://eca.dev/images/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:site_name" content="ECA - Editor Code Assistant" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="ECA - Free Open Source AI Pair Programming in Any Editor" />
+<meta name="twitter:description" content="ECA (Editor Code Assistant) is a free, open-source AI coding assistant that works with any editor — VS Code, Emacs, Neovim, IntelliJ, Desktop, CLI — and any LLM provider like OpenAI, Anthropic, Copilot, and Ollama. One config, every editor." />
+<meta name="twitter:image" content="https://eca.dev/images/og-image.png" />
+
+<!-- Additional SEO -->
+<meta name="keywords" content="AI pair programming, code assistant, open source, LLM, VS Code, Emacs, Neovim, IntelliJ, Desktop, CLI, terminal, Copilot alternative, OpenAI, Anthropic, Ollama, MCP, editor agnostic, AI coding" />
+<link rel="canonical" href="https://eca.dev/" />
+<meta name="google-site-verification" content="lpupnLMIN7V027EZqCPyBz9RafDE95tVbSxi5ocQIwA" />
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "ECA - Editor Code Assistant",
+  "description": "ECA (Editor Code Assistant) is a free, open-source AI coding assistant that works with any editor — VS Code, Emacs, Neovim, IntelliJ, Desktop, CLI — and any LLM provider like OpenAI, Anthropic, Copilot, and Ollama. One config, every editor.",
+  "url": "https://eca.dev/",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Windows, macOS, Linux",
+  "license": "https://github.com/editor-code-assistant/eca/blob/master/LICENSE",
+  "isAccessibleForFree": true,
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "softwareHelp": {
+    "@type": "WebPage",
+    "url": "https://eca.dev/config/introduction"
+  },
+  "codeRepository": "https://github.com/editor-code-assistant/eca",
+  "programmingLanguage": "Clojure",
+  "author": {
+    "@type": "Organization",
+    "name": "ECA Contributors",
+    "url": "https://github.com/editor-code-assistant"
+  }
+}
+</script>
+
+<style>
+  /*
+   * ECA Landing Page Styles
+   * ──────────────────────────
+   * 1. Custom Properties (light + dark themes)
+   * 2. Reset / Page Chrome
+   * 3. Hero Section
+   * 4. Buttons
+   * 5. Editor Showcase (CSS-only tabs)
+   * 6. Shared Section Styles
+   * 7. Why ECA
+   * 8. Major Features (bento layout)
+   * 9. Config Showcase (CSS-only carousel)
+   * 10. Community / Sponsor
+   * 11. Animations
+   * 12. Responsive
+   */
+
+  /* ── 1. Custom Properties ── */
+  :root {
+    --eca-brand: #1f1f1f;
+    --eca-brand-light: #4a4a4a;
+    --eca-brand-hover: #000000;
+    --eca-brand-bg: #f0f0f0;
+    --eca-brand-shadow: rgba(0,0,0,0.08);
+    --eca-brand-shadow-md: rgba(0,0,0,0.1);
+    --eca-brand-shadow-lg: rgba(0,0,0,0.25);
+    --eca-brand-gradient: linear-gradient(90deg, #1f1f1f, #5a5a5a);
+
+    --eca-text: #1a2b3c;
+    --eca-text-secondary: #5a6a7a;
+    --eca-text-muted: #8a9ab0;
+
+    --eca-bg-primary: #fff;
+    --eca-bg-secondary: #f6f8fa;
+    --eca-bg-card: #fff;
+    --eca-border: #e4e8ec;
+
+    --eca-shadow-sm: rgba(0,0,0,0.06);
+    --eca-shadow-md: rgba(0,0,0,0.1);
+    --eca-shadow-lg: rgba(0,0,0,0.15);
+    --eca-shadow-xl: rgba(0,0,0,0.25);
+
+    --eca-code-bg: #1a1a2e;
+    --eca-terminal-bg: #2d2d2d;
+    --eca-terminal-text: #999;
+    --eca-font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+
+    /* Editor tabs (hero section, on dark hero bg) */
+    --eca-tab-color: rgba(255,255,255,0.6);
+    --eca-tab-bg: rgba(255,255,255,0.06);
+    --eca-tab-border: rgba(255,255,255,0.12);
+    --eca-tab-border-bottom: rgba(255,255,255,0.15);
+    --eca-tab-hover-color: #fff;
+    --eca-tab-hover-bg: rgba(255,255,255,0.15);
+    --eca-tab-active-bg: #2d2d2d;
+    --eca-tab-active-color: #fff;
+    --eca-tab-active-border: rgba(255,255,255,0.15);
+    --eca-tab-active-border-bottom: #2d2d2d;
+    --eca-panel-frame-border: rgba(255,255,255,0.15);
+    --eca-panel-frame-shadow: 0 16px 48px rgba(0,0,0,0.25), 0 4px 12px rgba(0,0,0,0.15);
+
+    /* Showcase dots */
+    --eca-dot-color: #5a6a7a;
+    --eca-dot-bg: #f0f2f5;
+    --eca-dot-hover-color: #1a2b3c;
+    --eca-dot-hover-bg: #e4e8ec;
+    --eca-dot-active-color: #1f1f1f;
+    --eca-dot-active-bg: #f0f0f0;
+    --eca-dot-active-border: #1f1f1f;
+    --eca-dot-group-border: #d0d5dc;
+    --eca-dot-group-bg: rgba(0,0,0,0.03);
+    --eca-dot-group-label: #8a9ab0;
+
+    /* Community buttons */
+    --eca-btn-github-bg: #24292f;
+    --eca-btn-github-color: #fff;
+    --eca-btn-github-hover-bg: #333b44;
+    --eca-btn-github-hover-shadow: rgba(36,41,47,0.25);
+
+    --eca-btn-sponsor-bg: #fff;
+    --eca-btn-sponsor-color: #bf3070;
+    --eca-btn-sponsor-border: #f2d4e2;
+    --eca-btn-sponsor-hover-bg: #fef6f9;
+    --eca-btn-sponsor-hover-border: #e47faa;
+    --eca-btn-sponsor-hover-shadow: rgba(191,48,112,0.12);
+
+    --eca-btn-slack-bg: #fff;
+    --eca-btn-slack-color: #4A154B;
+    --eca-btn-slack-border: #ecdced;
+    --eca-btn-slack-hover-bg: #faf5fb;
+    --eca-btn-slack-hover-border: #9a6e9c;
+    --eca-btn-slack-hover-shadow: rgba(74,21,75,0.1);
+
+    --eca-community-bg: linear-gradient(180deg, #f6f8fa 0%, #eef1f4 100%);
+    --eca-community-btn-shadow: rgba(0,0,0,0.06);
+    --eca-avatar-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    --eca-avatar-hover-shadow: 0 3px 12px rgba(0,0,0,0.25);
+  }
+
+  [data-md-color-scheme="slate"] {
+    --eca-brand: #e6e6e6;
+    --eca-brand-light: #e6e6e6;
+    --eca-brand-bg: #262626;
+    --eca-brand-shadow: rgba(0,0,0,0.2);
+    --eca-brand-shadow-md: rgba(0,0,0,0.25);
+    --eca-brand-shadow-lg: rgba(0,0,0,0.35);
+    --eca-brand-gradient: linear-gradient(90deg, #e6e6e6, #8a8a8a);
+
+    --eca-text: #e0e4ea;
+    --eca-text-secondary: #8a9ab0;
+    --eca-text-muted: #5a6a7a;
+
+    --eca-bg-primary: #12121e;
+    --eca-bg-secondary: #1a1a2e;
+    --eca-bg-card: #22223a;
+    --eca-border: #2a2a3e;
+
+    --eca-shadow-sm: rgba(0,0,0,0.2);
+    --eca-shadow-md: rgba(0,0,0,0.25);
+    --eca-shadow-lg: rgba(0,0,0,0.3);
+    --eca-shadow-xl: rgba(0,0,0,0.4);
+
+    --eca-code-bg: #0a0a16;
+
+    --eca-tab-bg: rgba(255,255,255,0.06);
+    --eca-tab-border: rgba(255,255,255,0.1);
+    --eca-tab-border-bottom: rgba(255,255,255,0.1);
+    --eca-tab-color: rgba(255,255,255,0.5);
+    --eca-tab-hover-color: #fff;
+    --eca-tab-hover-bg: rgba(255,255,255,0.12);
+    --eca-tab-active-border: rgba(255,255,255,0.1);
+    --eca-tab-active-border-bottom: #2d2d2d;
+    --eca-panel-frame-border: rgba(255,255,255,0.1);
+    --eca-panel-frame-shadow: 0 16px 48px rgba(0,0,0,0.4), 0 4px 12px rgba(0,0,0,0.25);
+
+    --eca-dot-color: #8a9ab0;
+    --eca-dot-bg: #22223a;
+    --eca-dot-hover-color: #e0e4ea;
+    --eca-dot-hover-bg: #2a2a3e;
+    --eca-dot-active-color: #e6e6e6;
+    --eca-dot-active-bg: #262626;
+    --eca-dot-active-border: #e6e6e6;
+    --eca-dot-group-border: #3a3a4e;
+    --eca-dot-group-bg: rgba(255,255,255,0.03);
+    --eca-dot-group-label: #5a6a7a;
+
+    --eca-btn-github-bg: #c8cdd4;
+    --eca-btn-github-color: #12121e;
+    --eca-btn-github-hover-bg: #e0e4ea;
+    --eca-btn-github-hover-shadow: rgba(0,0,0,0.3);
+
+    --eca-btn-sponsor-bg: rgba(232,112,154,0.08);
+    --eca-btn-sponsor-color: #e8709a;
+    --eca-btn-sponsor-border: #3e2030;
+    --eca-btn-sponsor-hover-bg: rgba(232,112,154,0.15);
+    --eca-btn-sponsor-hover-border: #e8709a;
+    --eca-btn-sponsor-hover-shadow: rgba(232,112,154,0.12);
+
+    --eca-btn-slack-bg: rgba(192,128,200,0.08);
+    --eca-btn-slack-color: #c080c8;
+    --eca-btn-slack-border: #3a2a3e;
+    --eca-btn-slack-hover-bg: rgba(192,128,200,0.15);
+    --eca-btn-slack-hover-border: #c080c8;
+    --eca-btn-slack-hover-shadow: rgba(192,128,200,0.12);
+
+    --eca-community-bg: linear-gradient(180deg, #1a1a2e 0%, #12121e 100%);
+    --eca-community-btn-shadow: rgba(0,0,0,0.2);
+    --eca-avatar-shadow: 0 1px 4px rgba(0,0,0,0.3);
+    --eca-avatar-hover-shadow: 0 3px 12px rgba(0,0,0,0.4);
+  }
+
+  /* ── 2. Reset / Page Chrome ── */
+  .md-main__inner { margin-top: 0; }
+  .md-content__inner { padding: 0; margin: 0; }
+  .md-sidebar--primary { display: none; }
+  .md-sidebar--secondary { display: none; }
+  .md-content { max-width: none; margin: 0; }
+  .md-main .md-main__inner.md-grid { max-width: none; padding: 0; }
+  .md-content__inner::before { display: none; }
+  article.md-content__inner { padding: 0; }
+
+  /* Allow mobile drawer navigation to work */
+  @media (max-width: 76.1875em) {
+    .md-sidebar--primary {
+      display: block;
+    }
+  }
+
+  /* ── 3. Hero Section ── */
+  .eca-hero {
+    position: relative;
+    padding: 4rem 2rem;
+    overflow: hidden;
+    background: linear-gradient(180deg, #007a94 0%, #006a82 40%, #005268 100%);
+    color: #fff;
+  }
+
+  .eca-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 50% at 0% 100%, rgba(0,165,184,0.15) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 40% at 100% 0%, rgba(0,165,184,0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .eca-hero__inner {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 3rem;
+    align-items: center;
+    max-width: 72rem;
+    margin: 0 auto;
+    z-index: 1;
+  }
+
+  .eca-hero__text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .eca-hero__logo {
+    width: 72px;
+    height: 72px;
+    margin-bottom: 1.25rem;
+    filter: brightness(0) invert(1);
+    opacity: 0.75;
+    animation: eca-float 6s ease-in-out infinite;
+  }
+
+  .eca-hero__title {
+    font-size: 2.75rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin: 0 0 0.75rem;
+    color: #fff;
+  }
+
+  .eca-hero__title span {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #a6f0f7;
+    margin-bottom: 0.5rem;
+  }
+
+  .eca-hero__subtitle {
+    font-size: 1.15rem;
+    font-weight: 300;
+    opacity: 0.9;
+    max-width: 30rem;
+    margin: 0 0 2rem;
+    line-height: 1.55;
+  }
+
+  .eca-hero__actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  /* ── 4. Buttons ── */
+  .eca-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.75rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+
+  .eca-btn--primary {
+    background: #fff;
+    color: #161616;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+  }
+
+  .eca-btn--primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    color: #000;
+  }
+
+  .eca-btn--secondary {
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+    border: 1.5px solid rgba(255,255,255,0.35);
+    backdrop-filter: blur(4px);
+  }
+
+  .eca-btn--secondary:hover {
+    background: rgba(255,255,255,0.22);
+    border-color: rgba(255,255,255,0.6);
+    transform: translateY(-2px);
+    color: #fff;
+  }
+
+  .eca-btn svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+  }
+
+  /* ── 5. Editor Showcase (CSS-only tabs) ── */
+  .eca-hero__showcase {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .eca-hero__showcase input[type="radio"] {
+    display: none;
+  }
+
+  .eca-editors__tabs {
+    display: flex;
+    gap: 0.35rem;
+    margin-bottom: 0;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .eca-editors__tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .eca-editors__tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.55rem 1.1rem;
+    border-radius: 8px 8px 0 0;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--eca-tab-color);
+    background: var(--eca-tab-bg);
+    border: 1.5px solid var(--eca-tab-border);
+    border-bottom: 1.5px solid var(--eca-tab-border-bottom);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+    white-space: nowrap;
+    flex-shrink: 0;
+    position: relative;
+    bottom: -2px;
+    margin-bottom: 0;
+  }
+
+  .eca-editors__tab:hover {
+    color: var(--eca-tab-hover-color);
+    background: var(--eca-tab-hover-bg);
+  }
+
+  .eca-editors__tab svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+  }
+
+  #eca-tab-emacs:checked ~ .eca-editors__tabs label[for="eca-tab-emacs"],
+  #eca-tab-vscode:checked ~ .eca-editors__tabs label[for="eca-tab-vscode"],
+  #eca-tab-neovim:checked ~ .eca-editors__tabs label[for="eca-tab-neovim"],
+  #eca-tab-intellij:checked ~ .eca-editors__tabs label[for="eca-tab-intellij"],
+  #eca-tab-desktop:checked ~ .eca-editors__tabs label[for="eca-tab-desktop"],
+  #eca-tab-cli:checked ~ .eca-editors__tabs label[for="eca-tab-cli"] {
+    background: var(--eca-tab-active-bg);
+    color: var(--eca-tab-active-color);
+    border-color: var(--eca-tab-active-border);
+    border-bottom-color: var(--eca-tab-active-border-bottom);
+    z-index: 1;
+  }
+
+  .eca-editors__panels {
+    display: grid;
+  }
+
+  .eca-editors__panel {
+    grid-area: 1 / 1;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.25s ease, visibility 0s linear 0.25s;
+  }
+
+  #eca-tab-emacs:checked   ~ .eca-editors__panels .eca-editors__panel--emacs,
+  #eca-tab-vscode:checked  ~ .eca-editors__panels .eca-editors__panel--vscode,
+  #eca-tab-neovim:checked  ~ .eca-editors__panels .eca-editors__panel--neovim,
+  #eca-tab-intellij:checked ~ .eca-editors__panels .eca-editors__panel--intellij,
+  #eca-tab-desktop:checked ~ .eca-editors__panels .eca-editors__panel--desktop,
+  #eca-tab-cli:checked     ~ .eca-editors__panels .eca-editors__panel--cli {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: opacity 0.25s ease, visibility 0s linear 0s;
+  }
+
+  .eca-editors__panel-frame {
+    border-radius: 0 0 12px 12px;
+    overflow: hidden;
+    border: 2px solid var(--eca-panel-frame-border);
+    border-top: none;
+    box-shadow: var(--eca-panel-frame-shadow);
+    background: #1e1e1e;
+  }
+
+  .eca-editors__panel-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 0.85rem;
+    background: var(--eca-terminal-bg);
+  }
+
+  .eca-editors__panel-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+  }
+
+  .eca-editors__panel-dot--red    { background: #ff5f57; }
+  .eca-editors__panel-dot--yellow { background: #febc2e; }
+  .eca-editors__panel-dot--green  { background: #28c840; }
+
+  .eca-editors__panel-title {
+    flex: 1;
+    text-align: center;
+    font-size: 0.7rem;
+    color: var(--eca-terminal-text);
+    font-weight: 500;
+  }
+
+  .eca-editors__panel img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .eca-editors__panel-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: 0.85rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .eca-editors__panel-link:hover {
+    color: #fff;
+  }
+
+  .eca-editors__panel-link svg {
+    width: 14px;
+    height: 14px;
+    fill: currentColor;
+  }
+
+  /* ── 6. Shared Section Styles ── */
+  .eca-section-title {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--eca-text);
+    margin: 0 0 0.5rem;
+  }
+
+  .eca-section-desc {
+    text-align: center;
+    font-size: 0.95rem;
+    color: var(--eca-text-secondary);
+    max-width: 34rem;
+    margin: 0 auto 2.25rem;
+    line-height: 1.6;
+  }
+
+  .eca-trusted {
+    min-height: 178px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1.2rem 2rem 2.95rem;
+    background: var(--eca-bg-secondary);
+    border-top: 1px solid var(--eca-border);
+    border-bottom: 1px solid var(--eca-border);
+  }
+
+  .eca-trusted__title {
+    margin: 0;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.0em;
+    color: var(--eca-text-secondary);
+  }
+
+  .eca-trusted__logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: bottom;
+    gap: 1.5rem 4.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .eca-trusted__logos li {
+    margin: 0;
+  }
+
+  .eca-trusted__logos img {
+    display: block;
+    height: 34px;
+    width: auto;
+    max-width: 180px;
+    object-fit: contain;
+    /* Flatten every logo to solid black. For white use brightness(0) invert(1). */
+    filter: brightness(0);
+    opacity: 0.95;
+    &[alt="Team Ohana"]{
+      opacity: 1;
+      height: 36px;
+      translate: 0 3px;
+    }
+    &[alt="Flexiana"] {
+      height: 30px;
+      translate: 0 3px;
+    }
+  }
+
+  [data-md-color-scheme="slate"] .eca-trusted__logos img {
+    filter: brightness(0) invert(1);
+  }
+
+  /* ── 7. Why ECA ── */
+  .eca-why {
+    padding: 3.5rem 2rem;
+    background: var(--eca-bg-primary);
+  }
+
+  .eca-why__inner {
+    max-width: 60rem;
+    margin: 0 auto;
+  }
+
+  .eca-why__split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .eca-why__image-frame {
+    border-radius: 14px;
+    overflow: hidden;
+    border: 2px solid var(--eca-border);
+    box-shadow: 0 8px 24px var(--eca-shadow-sm);
+  }
+
+  .eca-why__image-frame img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .eca-why__advantages {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .eca-why__item {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+  }
+
+  .eca-why__item-icon {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--eca-brand-bg);
+    color: var(--eca-brand);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    margin-top: 1px;
+  }
+
+  .eca-why__item-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .eca-why__item-title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--eca-text);
+  }
+
+  .eca-why__item-desc {
+    font-size: 0.8rem;
+    color: var(--eca-text-secondary);
+    line-height: 1.5;
+  }
+
+  /* ── 8. Major Features (bento layout) ── */
+  .eca-features {
+    padding: 3.5rem 2rem 4rem;
+    background: var(--eca-bg-secondary);
+    border-top: 1px solid var(--eca-border);
+    border-bottom: 1px solid var(--eca-border);
+  }
+
+  .eca-features__inner {
+    max-width: 62rem;
+    margin: 0 auto;
+  }
+
+  .eca-features__hero {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .eca-feature--hero {
+    position: relative;
+    padding: 1.5rem;
+    border-radius: 14px;
+    border: 1px solid var(--eca-border);
+    background: var(--eca-bg-card);
+    transition: all 0.25s ease;
+    text-decoration: none;
+    /* Same layout as .eca-feature: icon alone in the first column */
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 0.75rem;
+    align-content: start;
+    overflow: hidden;
+  }
+
+  .eca-feature--hero > * {
+    grid-column: 2;
+  }
+
+  .eca-feature--hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--eca-brand-gradient);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+
+  .eca-feature--hero:hover {
+    border-color: var(--eca-brand);
+    box-shadow: 0 8px 24px var(--eca-brand-shadow-md);
+    transform: translateY(-2px);
+  }
+
+  .eca-feature--hero:hover::before {
+    opacity: 1;
+  }
+
+  .eca-feature--hero__icon {
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: var(--eca-brand-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    line-height: 1;
+    margin-top: 1px;
+  }
+
+  .eca-feature--hero__title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--eca-text);
+    margin: 0 0 0.35rem;
+  }
+
+  .eca-feature--hero__desc {
+    font-size: 0.85rem;
+    color: var(--eca-text-secondary);
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  .eca-feature--hero__link {
+    justify-self: start;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    margin-top: 0.75rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--eca-brand);
+    text-decoration: none;
+    transition: gap 0.2s ease;
+  }
+
+  .eca-feature--hero:hover .eca-feature--hero__link {
+    gap: 0.5rem;
+  }
+
+  .eca-feature--hero__link svg {
+    width: 13px;
+    height: 13px;
+    fill: currentColor;
+  }
+
+  .eca-features__group {
+    margin-bottom: 1.25rem;
+  }
+
+  .eca-features__group:last-child {
+    margin-bottom: 0;
+  }
+
+  .eca-features__group-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--eca-brand);
+    margin: 0 0 0.65rem 0.25rem;
+  }
+
+  .eca-features__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .eca-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1rem 1.15rem;
+    border-radius: 10px;
+    border: 1px solid var(--eca-border);
+    background: var(--eca-bg-card);
+    transition: all 0.2s ease;
+    text-decoration: none;
+  }
+
+  .eca-feature:hover {
+    border-color: var(--eca-brand);
+    box-shadow: 0 4px 16px var(--eca-brand-shadow);
+    transform: translateY(-1px);
+  }
+
+  .eca-feature__icon {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: var(--eca-brand-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    line-height: 1;
+    margin-top: 1px;
+  }
+
+  .eca-feature__body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    min-width: 0;
+  }
+
+  .eca-feature__title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--eca-text);
+    margin: 0;
+  }
+
+  .eca-feature__desc {
+    font-size: 0.78rem;
+    color: var(--eca-text-secondary);
+    line-height: 1.4;
+    margin: 0;
+  }
+
+  /* ── 9. Config Showcase (CSS-only carousel) ── */
+  .eca-showcase {
+    padding: 3.5rem 2rem 4rem;
+    background: var(--eca-bg-primary);
+    border-top: 1px solid var(--eca-border);
+  }
+
+  .eca-showcase__inner {
+    max-width: 62rem;
+    margin: 0 auto;
+  }
+
+  .eca-showcase__carousel {
+    margin-top: 2.25rem;
+    position: relative;
+  }
+
+  .eca-showcase__carousel input[type="radio"] {
+    display: none;
+  }
+
+  .eca-showcase__dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .eca-showcase__dot {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.4rem 0.9rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--eca-dot-color);
+    background: var(--eca-dot-bg);
+    border: 1.5px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+    white-space: nowrap;
+  }
+
+  .eca-showcase__dot:hover {
+    color: var(--eca-dot-hover-color);
+    background: var(--eca-dot-hover-bg);
+  }
+
+  .eca-showcase__dot-emoji {
+    line-height: 0;
+    font-size: 0.85rem;
+  }
+
+  .eca-showcase__dot-group {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.25rem 0.3rem 0.25rem 0.65rem;
+    border-radius: 24px;
+    border: 1.5px dashed var(--eca-dot-group-border);
+    background: var(--eca-dot-group-bg);
+  }
+
+  .eca-showcase__dot-group-label {
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--eca-dot-group-label);
+    white-space: nowrap;
+    user-select: none;
+  }
+
+  #eca-sc-1:checked ~ .eca-showcase__dots label[for="eca-sc-1"],
+  #eca-sc-2:checked ~ .eca-showcase__dots label[for="eca-sc-2"],
+  #eca-sc-3:checked ~ .eca-showcase__dots label[for="eca-sc-3"],
+  #eca-sc-4:checked ~ .eca-showcase__dots label[for="eca-sc-4"],
+  #eca-sc-5:checked ~ .eca-showcase__dots label[for="eca-sc-5"],
+  #eca-sc-6:checked ~ .eca-showcase__dots label[for="eca-sc-6"],
+  #eca-sc-7:checked ~ .eca-showcase__dots label[for="eca-sc-7"],
+  #eca-sc-8:checked ~ .eca-showcase__dots label[for="eca-sc-8"] {
+    color: var(--eca-dot-active-color);
+    background: var(--eca-dot-active-bg);
+    border-color: var(--eca-dot-active-border);
+  }
+
+  .eca-showcase__slides {
+    display: grid;
+  }
+
+  .eca-showcase__slide {
+    grid-area: 1 / 1;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  #eca-sc-1:checked ~ .eca-showcase__slides .eca-showcase__slide--1,
+  #eca-sc-2:checked ~ .eca-showcase__slides .eca-showcase__slide--2,
+  #eca-sc-3:checked ~ .eca-showcase__slides .eca-showcase__slide--3,
+  #eca-sc-4:checked ~ .eca-showcase__slides .eca-showcase__slide--4,
+  #eca-sc-5:checked ~ .eca-showcase__slides .eca-showcase__slide--5,
+  #eca-sc-6:checked ~ .eca-showcase__slides .eca-showcase__slide--6,
+  #eca-sc-7:checked ~ .eca-showcase__slides .eca-showcase__slide--7,
+  #eca-sc-8:checked ~ .eca-showcase__slides .eca-showcase__slide--8 {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: opacity 0.3s ease, visibility 0s linear 0s;
+  }
+
+  .eca-showcase__text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .eca-showcase__badge {
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    gap: 0.35rem;
+    padding: 0.25rem 0.65rem;
+    border-radius: 6px;
+    background: var(--eca-brand-bg);
+    color: var(--eca-brand);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+
+  .eca-showcase__slide-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--eca-text);
+    margin: 0 0 0.5rem;
+    line-height: 1.25;
+  }
+
+  .eca-showcase__slide-desc {
+    font-size: 0.9rem;
+    color: var(--eca-text-secondary);
+    line-height: 1.6;
+    margin: 0 0 1rem;
+  }
+
+  .eca-showcase__inline-link {
+    color: var(--eca-brand);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .eca-showcase__slide-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--eca-brand);
+    text-decoration: none;
+    transition: gap 0.2s ease;
+  }
+
+  .eca-showcase__slide-link:hover {
+    gap: 0.5rem;
+  }
+
+  .eca-showcase__slide-link svg {
+    width: 14px;
+    height: 14px;
+    fill: currentColor;
+  }
+
+  .eca-showcase__code-wrap {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--eca-border);
+    box-shadow: 0 4px 20px var(--eca-shadow-sm);
+  }
+
+  .eca-showcase__code-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.85rem;
+    background: var(--eca-terminal-bg);
+  }
+
+  .eca-showcase__code-bar-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+
+  .eca-showcase__code-bar-dot--red    { background: #ff5f57; }
+  .eca-showcase__code-bar-dot--yellow { background: #febc2e; }
+  .eca-showcase__code-bar-dot--green  { background: #28c840; }
+
+  .eca-showcase__code-bar-title {
+    flex: 1;
+    text-align: center;
+    font-size: 0.68rem;
+    color: var(--eca-terminal-text);
+    font-weight: 500;
+    font-family: var(--eca-font-mono);
+  }
+
+  .eca-showcase__code {
+    padding: 1.1rem 1.25rem;
+    background: var(--eca-code-bg);
+    overflow-x: auto;
+  }
+
+  .eca-showcase__code pre {
+    margin: 0;
+    font-family: var(--eca-font-mono);
+    font-size: 0.78rem;
+    line-height: 1.65;
+    color: #c9d1d9;
+    white-space: pre;
+  }
+
+  .eca-showcase__code .hl-key   { color: #7ec8e3; }
+  .eca-showcase__code .hl-str   { color: #a5d6a7; }
+  .eca-showcase__code .hl-num   { color: #f9a87c; }
+  .eca-showcase__code .hl-bool  { color: #f9a87c; }
+  .eca-showcase__code .hl-brace { color: #888; }
+  .eca-showcase__code .hl-comm  { color: #6a737d; font-style: italic; }
+
+  /* ── 10. Community / Sponsor ── */
+  .eca-community {
+    padding: 3.5rem 2rem 4rem;
+    background: var(--eca-bg-primary);
+    text-align: center;
+  }
+
+  .eca-community__inner {
+    max-width: 44rem;
+    margin: 0 auto;
+  }
+
+  .eca-community__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.35rem 0.85rem;
+    border-radius: 20px;
+    background: var(--eca-brand-bg);
+    color: var(--eca-brand);
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+  }
+
+  .eca-community__badge svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+  }
+
+  .eca-community__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--eca-text);
+    margin: 0 0 0.5rem;
+  }
+
+  .eca-community__desc {
+    font-size: 0.95rem;
+    color: var(--eca-text-secondary);
+    line-height: 1.6;
+    margin: 0 0 2rem;
+    max-width: 36rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .eca-community__links {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+  }
+
+  .eca-community__links .eca-btn {
+    padding: 0.65rem 1.4rem;
+    border-radius: 10px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    border: 1.5px solid transparent;
+    box-shadow: 0 1px 3px var(--eca-community-btn-shadow);
+  }
+
+  .eca-community__links .eca-btn svg {
+    width: 16px;
+    height: 16px;
+    opacity: 0.85;
+  }
+
+  .eca-btn--github {
+    background: var(--eca-btn-github-bg);
+    color: var(--eca-btn-github-color);
+  }
+
+  .eca-btn--github:hover {
+    background: var(--eca-btn-github-hover-bg);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px var(--eca-btn-github-hover-shadow);
+    color: var(--eca-btn-github-color);
+  }
+
+  .eca-btn--sponsor {
+    background: var(--eca-btn-sponsor-bg);
+    color: var(--eca-btn-sponsor-color);
+    border-color: var(--eca-btn-sponsor-border);
+  }
+
+  .eca-btn--sponsor:hover {
+    background: var(--eca-btn-sponsor-hover-bg);
+    border-color: var(--eca-btn-sponsor-hover-border);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px var(--eca-btn-sponsor-hover-shadow);
+    color: var(--eca-btn-sponsor-color);
+  }
+
+  .eca-btn--sponsor svg { opacity: 1; }
+
+  .eca-btn--slack {
+    background: var(--eca-btn-slack-bg);
+    color: var(--eca-btn-slack-color);
+    border-color: var(--eca-btn-slack-border);
+  }
+
+  .eca-btn--slack:hover {
+    background: var(--eca-btn-slack-hover-bg);
+    border-color: var(--eca-btn-slack-hover-border);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px var(--eca-btn-slack-hover-shadow);
+    color: var(--eca-btn-slack-color);
+  }
+
+  .eca-community__contributors {
+    margin-bottom: 2rem;
+  }
+
+  .eca-community__contributors-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--eca-text-secondary);
+    margin: 0 0 1rem;
+  }
+
+  .eca-marquee {
+    position: relative;
+    overflow: hidden;
+    max-width: 900px;
+    margin: 0 auto;
+    /* Room above and below so the hover scale is not clipped */
+    padding: 1rem 0;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.1) 4%, rgba(0,0,0,0.3) 9%, rgba(0,0,0,0.6) 15%, rgba(0,0,0,0.85) 21%, #000 28%, #000 72%, rgba(0,0,0,0.85) 79%, rgba(0,0,0,0.6) 85%, rgba(0,0,0,0.3) 91%, rgba(0,0,0,0.1) 96%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.1) 4%, rgba(0,0,0,0.3) 9%, rgba(0,0,0,0.6) 15%, rgba(0,0,0,0.85) 21%, #000 28%, #000 72%, rgba(0,0,0,0.85) 79%, rgba(0,0,0,0.6) 85%, rgba(0,0,0,0.3) 91%, rgba(0,0,0,0.1) 96%, transparent 100%);
+  }
+
+  .eca-marquee__track {
+    display: flex;
+    gap: 1rem;
+    width: max-content;
+    animation: eca-marquee-scroll 35s linear infinite;
+    will-change: transform;
+  }
+
+  .eca-marquee:hover .eca-marquee__track {
+    animation-play-state: paused;
+  }
+
+  .eca-marquee__avatar {
+    display: block;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    filter: grayscale(1) brightness(1.1) contrast(1.05);
+    border: 0.5px solid rgba(128, 128, 128, 0.5);
+    opacity: 0.8;
+    box-sizing: border-box;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease, opacity 0.2s ease;
+    box-shadow: var(--eca-avatar-shadow);
+  }
+
+  .eca-marquee__avatar-link {
+    display: block;
+    flex-shrink: 0;
+    border-radius: 50%;
+  }
+
+  .eca-marquee__avatar-link:hover .eca-marquee__avatar {
+    transform: scale(1.18);
+    filter: grayscale(0) brightness(1.1) contrast(1.05);
+    opacity: 1;
+    box-shadow: var(--eca-avatar-hover-shadow);
+  }
+
+  /* Avatar tooltip: one shared popover, shown by the script at the end */
+  .eca-tip {
+    position: fixed;
+    inset: auto;
+    margin: 0;
+    border: 0;
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+    background: #22221f;
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1.2;
+    white-space: nowrap;
+    pointer-events: none;
+    transform: translate(-50%, -100%);
+  }
+
+  .eca-community__clojure {
+    font-size: 0.78rem;
+    color: var(--eca-text-secondary);
+    margin: 0;
+  }
+
+  .eca-community__clojure a {
+    color: var(--eca-brand);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .eca-community__clojure a:hover {
+    text-decoration: underline;
+  }
+
+  /* ── 11. Animations ── */
+  @keyframes eca-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+
+  @keyframes eca-marquee-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(calc(-50% - 0.5rem)); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .eca-marquee__track {
+      animation: none;
+    }
+  }
+
+  /* ── 12. Responsive ── */
+  /* Stack the hero below ~1279px: side by side, the text column plus the
+     whole editor tab bar (its tabs don't wrap) no longer fit, and the hero
+     would overflow, clipping the right-most tabs. In em, so it tracks the
+     rem-sized tabs when the browser's font size changes. */
+  @media (max-width: 79.9375em) {
+    .eca-hero__inner {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    .eca-hero__text {
+      text-align: center;
+      align-items: center;
+    }
+
+    .eca-hero__subtitle {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .eca-hero__actions {
+      justify-content: center;
+    }
+
+    .eca-hero__showcase {
+      width: 100%;
+      max-width: 46rem;
+      justify-self: center;
+      overflow: hidden;
+    }
+
+    /* Center the tabs while they fit. Auto margins instead of
+       `justify-content: center`: once the tabs overflow the margins drop
+       to 0 and the bar scrolls from the first tab, where centering would
+       push it past the left edge, out of scroll reach. */
+    .eca-editors__tab:first-child {
+      margin-left: auto;
+    }
+
+    .eca-editors__tab:last-child {
+      margin-right: auto;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .eca-why__split {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .eca-showcase__slide {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .eca-showcase__dots {
+      flex-wrap: wrap;
+    }
+
+    .eca-features__hero {
+      grid-template-columns: 1fr;
+    }
+
+    .eca-features__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  /* Compact editor tabs once the stacked tab bar can't fit them at full
+     size (~864px), so all of them stay visible down to ~700px. */
+  @media (max-width: 54em) {
+    .eca-editors__tab {
+      padding: 0.4rem 0.65rem;
+      font-size: 0.72rem;
+    }
+
+    .eca-editors__tab svg {
+      width: 14px;
+      height: 14px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .eca-hero {
+      padding: 2rem 1rem 2.5rem;
+    }
+
+    .eca-hero__inner {
+      gap: 1.75rem;
+    }
+
+    .eca-hero__logo {
+      width: 56px;
+      height: 56px;
+      margin-bottom: 0.75rem;
+    }
+
+    .eca-hero__title {
+      font-size: 1.75rem;
+    }
+
+    .eca-hero__title span {
+      font-size: 0.8rem;
+    }
+
+    .eca-hero__subtitle {
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .eca-hero__actions {
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      width: 100%;
+    }
+
+    .eca-hero__actions .eca-btn {
+      width: 100%;
+      max-width: 16rem;
+      justify-content: center;
+      padding: 0.7rem 1.25rem;
+      font-size: 0.9rem;
+    }
+
+    .eca-editors__panel-frame {
+      border-radius: 0 0 8px 8px;
+    }
+
+    .eca-features__hero {
+      grid-template-columns: 1fr;
+    }
+
+    .eca-features__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .eca-showcase__slide {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .eca-showcase__dots {
+      flex-wrap: wrap;
+    }
+
+    .eca-showcase__dot {
+      padding: 0.3rem 0.7rem;
+      font-size: 0.7rem;
+    }
+
+    .eca-showcase__dot-group {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .eca-showcase__code pre {
+      font-size: 0.68rem;
+    }
+
+    .eca-community__links {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .eca-community__links .eca-btn {
+      width: 100%;
+      max-width: 16rem;
+      justify-content: center;
+    }
+
+    .eca-section-title {
+      font-size: 1.25rem;
+    }
+
+    .eca-section-desc {
+      font-size: 0.85rem;
+    }
+  }
+  /* Community buttons: --eca-bg-secondary with the original geometry,
+     slightly darker on hover. Only the heart and Slack icons keep color. */
+  body:not([data-md-color-scheme="slate"]) .eca-community__links .eca-btn {
+    padding: 0.65rem 1.4rem;
+    padding-inline-start: 1.15rem;
+    border-radius: 10px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: #22221f;
+    background: var(--eca-bg-secondary);
+    border: 1.5px solid #dddbd4;
+    box-shadow: none;
+    transform: none;
+  }
+
+  body:not([data-md-color-scheme="slate"]) .eca-btn--github svg {
+    width: 19px;
+    height: 19px;
+  }
+
+  body:not([data-md-color-scheme="slate"]) .eca-btn--sponsor svg {
+    color: #bf3070;
+  }
+
+  body:not([data-md-color-scheme="slate"]) .eca-btn--slack svg {
+    color: #4a154b;
+  }
+
+  body:not([data-md-color-scheme="slate"]) .eca-community__links .eca-btn:hover {
+    color: #22221f;
+    background: var(--eca-bg-secondary);
+    border-color: #b5b3aa;
+    box-shadow: none;
+    transform: none;
+  }
+
+  body:not([data-md-color-scheme="slate"]) .eca-community__links .eca-btn svg {
+    opacity: 1;
+  }
+
+</style>
+
   </head>
   
   
@@ -74,11 +1636,6 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
-      
-        
-        <a href="#eca-editor-code-assistant" class="md-skip">
-          Skip to content
-        </a>
       
     </div>
     <div data-md-component="announce">
@@ -109,7 +1666,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Overview
+              ECA - Free Open Source AI Pair Programming in Any Editor
             
           </span>
         </div>
@@ -181,6 +1738,7 @@
     <div class="md-container" data-md-component="container">
       
       
+  
         
           
             
@@ -195,14 +1753,33 @@
     
   
   
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="." class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="install/" class="md-tabs__link">
           
   
   
-  Home
+  Documentation
 
         </a>
       </li>
@@ -216,13 +1793,13 @@
   
   
     <li class="md-tabs__item">
-      <a href="features/" class="md-tabs__link">
+      <a href="/install/" class="md-tabs__link">
         
   
   
     
   
-  Features
+  Install
 
       </a>
     </li>
@@ -235,13 +1812,13 @@
   
   
     <li class="md-tabs__item">
-      <a href="installation/" class="md-tabs__link">
+      <a href="/config/introduction/" class="md-tabs__link">
         
   
   
     
   
-  Installation
+  Configuration
 
       </a>
     </li>
@@ -254,13 +1831,13 @@
   
   
     <li class="md-tabs__item">
-      <a href="models/" class="md-tabs__link">
+      <a href="/protocol/" class="md-tabs__link">
         
   
   
     
   
-  Models
+  Protocol
 
       </a>
     </li>
@@ -273,13 +1850,13 @@
   
   
     <li class="md-tabs__item">
-      <a href="examples/" class="md-tabs__link">
+      <a href="/troubleshooting/" class="md-tabs__link">
         
   
   
     
   
-  Examples
+  Troubleshooting
 
       </a>
     </li>
@@ -292,7 +1869,26 @@
   
   
     <li class="md-tabs__item">
-      <a href="https://github.com/sponsors/ericdallo" class="md-tabs__link">
+      <a href="https://plugins.eca.dev" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Plugins
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="https://github.com/sponsors/editor-code-assistant" class="md-tabs__link">
         
   
   
@@ -305,37 +1901,1326 @@
   
 
       
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="CHANGELOG/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  Changelog
-
-      </a>
-    </li>
-  
-
-      
     </ul>
   </div>
 </nav>
           
         
       
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  <!-- ── Hero ── -->
+  <section class="eca-hero">
+    <div class="eca-hero__inner">
+
+      <!-- Left: text -->
+      <div class="eca-hero__text">
+        <img src="images/logo.svg" alt="ECA" class="eca-hero__logo">
+        <h1 class="eca-hero__title">
+          <span>Editor Code Assistant</span>
+          AI Pair Programming<br>in Any Editor
+        </h1>
+        <p class="eca-hero__subtitle">
+          A free, open-source, editor-agnostic tool that connects LLMs to your editor
+          through a well-defined protocol &mdash; giving you the best AI coding experience everywhere.
+        </p>
+        <div class="eca-hero__actions">
+          <a href="install" class="eca-btn eca-btn--primary">
+            <svg viewBox="0 0 24 24"><path d="M13 5v6h1.17L12 13.17 9.83 11H11V5h2m2-2H9v6H5l7 7 7-7h-4V3zm4 15H5v2h14v-2z"/></svg>
+            Get Started
+          </a>
+          <a href="https://github.com/editor-code-assistant/eca" class="eca-btn eca-btn--secondary" target="_blank">
+            <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: editor showcase -->
+      <div class="eca-hero__showcase">
+        <input type="radio" name="eca-editor" id="eca-tab-emacs" checked>
+        <input type="radio" name="eca-editor" id="eca-tab-vscode">
+        <input type="radio" name="eca-editor" id="eca-tab-neovim">
+        <input type="radio" name="eca-editor" id="eca-tab-intellij">
+        <input type="radio" name="eca-editor" id="eca-tab-desktop">
+        <input type="radio" name="eca-editor" id="eca-tab-cli">
+
+        <div class="eca-editors__tabs">
+          <label for="eca-tab-emacs" class="eca-editors__tab">
+            <svg viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 24C5.448 24 .118 18.617.118 12S5.448 0 12 0c6.552 0 11.882 5.383 11.882 12S18.552 24 12 24m0-23.339C5.813.661.779 5.748.779 12s5.034 11.339 11.221 11.339c6.187 0 11.221-5.086 11.221-11.339S18.187.661 12 .661M8.03 20.197s.978.069 2.236-.042c.51-.045 2.444-.235 3.891-.552 0 0 1.764-.377 2.707-.725.987-.364 1.524-.673 1.766-1.11-.011-.09.074-.408-.381-.599-1.164-.488-2.514-.4-5.185-.457-2.962-.102-3.948-.598-4.472-.997-.503-.405-.25-1.526 1.907-2.513 1.086-.526 5.345-1.496 5.345-1.496-1.434-.709-4.109-1.955-4.659-2.224-.482-.236-1.254-.591-1.421-1.021-.19-.413.448-.768.804-.87 1.147-.331 2.766-.536 4.24-.56.741-.012.861-.059.861-.059 1.022-.17 1.695-.869 1.414-1.976-.252-1.13-1.579-1.795-2.84-1.565-1.188.217-4.05 1.048-4.05 1.048 3.539-.031 4.131.028 4.395.398.156.218-.071.518-1.015.672-1.027.168-3.163.37-3.163.37-2.049.122-3.492.13-3.925 1.046-.282.57.303 1.1.559 1.431 1.082 1.204 2.646 1.853 3.652 2.331.379.18 1.49.52 1.49.52-3.265-.18-5.619.823-7.001 1.977-1.562 1.445-.871 3.168 2.33 4.228 1.891.626 2.828.921 5.648.667 1.661-.09 1.923-.036 1.939.1.023.192-1.845.669-2.355.816-1.298.374-4.699 1.129-4.716 1.133z"/></svg>
+            Emacs
+          </label>
+          <label for="eca-tab-vscode" class="eca-editors__tab">
+            <svg viewBox="0 0 24 24"><path d="M17.583 2.006l-4.45 4.164L7.29 1.57 2.07 4.122v15.756L7.29 22.43l5.843-4.6 4.45 4.164L21.93 19.2V4.8l-4.347-2.794zM7.29 14.768V9.232L10.824 12 7.29 14.768zm10.293 2.674L13.99 12l3.593-5.442v10.884z"/></svg>
+            VS Code
+          </label>
+          <label for="eca-tab-intellij" class="eca-editors__tab">
+            <svg viewBox="0 0 24 24"><path d="M3 3h18v18H3V3zm1.5 1.5v15h15v-15h-15zM5.25 18h7.5v1.5h-7.5V18zm0-2.25h4.5V17.25h-4.5V15.75zM5.25 6h1.5v6h-1.5V6zm3 0h3.75c1.6 0 2.62 1.12 2.62 2.62 0 1.5-1.05 2.63-2.62 2.63H9.75V12h-1.5V6zm1.5 1.35v2.55h2.1c.68 0 1.2-.47 1.2-1.27 0-.83-.52-1.28-1.2-1.28H9.75z"/></svg>
+            IntelliJ
+          </label>
+          <label for="eca-tab-neovim" class="eca-editors__tab">
+            <svg viewBox="0 0 24 24"><path d="M2.214 4.954v13.615L7.2 24V10.314L14.863 19.6h.075l4.848-5.37V2.086l-4.985 5.2V0z"/></svg>
+            Neovim
+          </label>
+          <label for="eca-tab-desktop" class="eca-editors__tab">
+            <svg viewBox="0 0 24 24"><path d="M21 2H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h7l-2 3v1h8v-1l-2-3h7c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 12H3V4h18v10z"/></svg>
+            Desktop
+          </label>
+          <label for="eca-tab-cli" class="eca-editors__tab">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8h16v10zM6.5 10.5l1.06-1.06L10.5 12l-2.94 2.56L6.5 13.5 8.38 12 6.5 10.5zM12 14h5.5v1.5H12V14z"/></svg>
+            CLI
+          </label>
+        </div>
+
+        <div class="eca-editors__panels">
+          <div class="eca-editors__panel eca-editors__panel--emacs">
+      <div class="eca-editors__panel-frame">
+        <div class="eca-editors__panel-bar">
+      <span class="eca-editors__panel-dot eca-editors__panel-dot--red"></span>
+      <span class="eca-editors__panel-dot eca-editors__panel-dot--yellow"></span>
+      <span class="eca-editors__panel-dot eca-editors__panel-dot--green"></span>
+      <span class="eca-editors__panel-title">ECA &mdash; Emacs</span>
+    </div>
+        <img src="https://raw.githubusercontent.com/editor-code-assistant/eca-emacs/master/demo.gif" alt="ECA running in Emacs">
+      </div>
+      <a href="install/#emacs" class="eca-editors__panel-link">
+        Install in Emacs
+        <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+      </a>
+    </div>
+          <div class="eca-editors__panel eca-editors__panel--vscode">
+      <div class="eca-editors__panel-frame">
+        <div class="eca-editors__panel-bar">
+      <span class="eca-editors__panel-dot eca-editors__panel-dot--red"></span>
+      <span class="eca-editors__panel-dot eca-editors__panel-dot--yellow"></span>
+      <span class="eca-editors__panel-dot eca-editors__panel-dot--green"></span>
+      <span class="eca-editors__panel-title">ECA &mdash; VS Code</span>
+    </div>
+        <img src="https://raw.githubusercontent.com/editor-code-assistant/eca-vscode/master/demo.gif" alt="ECA running in VS Code">
+      </div>
+      <a href="install/#vscode" class="eca-editors__panel-link">
+        Install in VS Code
+        <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+      </a>
+    </div>
+          <div class="eca-editors__panel eca-editors__panel--intellij">
+      <div class="eca-editors__panel-frame">
+        <div class="eca-editors__panel-bar">
+      <span class="eca-editors__panel-dot eca-editors__panel-dot--red"></span>
+      <span class="eca-editors__panel-dot eca-editors__panel-dot--yellow"></span>
+      <span class="eca-editors__panel-dot eca-editors__panel-dot--green"></span>
+      <span class="eca-editors__panel-title">ECA &mdash; IntelliJ</span>
+    </div>
+        <img src="https://raw.githubusercontent.com/editor-code-assistant/eca-intellij/master/demo.gif" alt="ECA running in IntelliJ">
+      </div>
+      <a href="install/#intellij" class="eca-editors__panel-link">
+        Install in IntelliJ
+        <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+      </a>
+    </div>
+          <div class="eca-editors__panel eca-editors__panel--neovim">
+      <div class="eca-editors__panel-frame">
+        <div class="eca-editors__panel-bar">
+      <span class="eca-editors__panel-dot eca-editors__panel-dot--red"></span>
+      <span class="eca-editors__panel-dot eca-editors__panel-dot--yellow"></span>
+      <span class="eca-editors__panel-dot eca-editors__panel-dot--green"></span>
+      <span class="eca-editors__panel-title">ECA &mdash; Neovim</span>
+    </div>
+        <img src="https://raw.githubusercontent.com/editor-code-assistant/eca-nvim/master/demo.png" alt="ECA running in Neovim">
+      </div>
+      <a href="install/#neovim" class="eca-editors__panel-link">
+        Install in Neovim
+        <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+      </a>
+    </div>
+          <div class="eca-editors__panel eca-editors__panel--desktop">
+      <div class="eca-editors__panel-frame">
+        <div class="eca-editors__panel-bar">
+      <span class="eca-editors__panel-dot eca-editors__panel-dot--red"></span>
+      <span class="eca-editors__panel-dot eca-editors__panel-dot--yellow"></span>
+      <span class="eca-editors__panel-dot eca-editors__panel-dot--green"></span>
+      <span class="eca-editors__panel-title">ECA &mdash; Desktop</span>
+    </div>
+        <img src="https://raw.githubusercontent.com/editor-code-assistant/eca-desktop/master/demo.gif" alt="ECA running as a Desktop app">
+      </div>
+      <a href="install/#desktop" class="eca-editors__panel-link">
+        Install Desktop version
+        <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+      </a>
+    </div>
+          <div class="eca-editors__panel eca-editors__panel--cli">
+      <div class="eca-editors__panel-frame">
+        <div class="eca-editors__panel-bar">
+      <span class="eca-editors__panel-dot eca-editors__panel-dot--red"></span>
+      <span class="eca-editors__panel-dot eca-editors__panel-dot--yellow"></span>
+      <span class="eca-editors__panel-dot eca-editors__panel-dot--green"></span>
+      <span class="eca-editors__panel-title">ECA &mdash; CLI</span>
+    </div>
+        <img src="https://raw.githubusercontent.com/editor-code-assistant/eca-cli/main/demo.gif" alt="ECA running in the terminal">
+      </div>
+      <a href="install/#cli" class="eca-editors__panel-link">
+        Install CLI version
+        <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+      </a>
+    </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Why ECA ── -->
+  <section class="eca-why">
+    <div class="eca-why__inner">
+      <h2 class="eca-section-title">Why ECA?</h2>
+      <p class="eca-section-desc">
+        A protocol-first approach to AI coding &mdash; one server connecting any editor to any LLM.
+          <br/>
+          For ones interested in being in the loop inside your editor.
+      </p>
+      <div class="eca-why__split">
+        <div class="eca-why__image-frame">
+          <img src="images/rationale.jpg" alt="ECA rationale — LLMs connected to editors via protocol" loading="lazy">
+        </div>
+        <div class="eca-why__advantages">
+          <div class="eca-why__item">
+            <div class="eca-why__item-icon"><!-- @license lucide-static v1.57.0 - ISC -->
+<svg
+  class="lucide lucide-file-text"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
+  <path d="M14 2v5a1 1 0 0 0 1 1h5" />
+  <path d="M10 9H8" />
+  <path d="M16 13H8" />
+  <path d="M16 17H8" />
+</svg></div>
+            <div class="eca-why__item-text">
+              <span class="eca-why__item-title">Editor-Agnostic Protocol</span>
+              <span class="eca-why__item-desc">Inspired by LSP &mdash; any editor can integrate. One server, many clients.</span>
+            </div>
+          </div>
+          <div class="eca-why__item">
+            <div class="eca-why__item-icon"><!-- @license lucide-static v1.57.0 - ISC -->
+<svg
+  class="lucide lucide-settings"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915" />
+  <circle cx="12" cy="12" r="3" />
+</svg></div>
+            <div class="eca-why__item-text">
+              <span class="eca-why__item-title">Single Configuration</span>
+              <span class="eca-why__item-desc">Configure once, same experience everywhere &mdash; global or per-project.</span>
+            </div>
+          </div>
+          <div class="eca-why__item">
+            <div class="eca-why__item-icon"><!-- @license lucide-static v1.57.0 - ISC -->
+<svg
+  class="lucide lucide-rocket"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+  <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09" />
+  <path d="M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z" />
+  <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05" />
+</svg></div>
+            <div class="eca-why__item-text">
+              <span class="eca-why__item-title">Multi-Model Support</span>
+              <span class="eca-why__item-desc">OpenAI, Anthropic, Copilot, Ollama, and many more. Switch freely.</span>
+            </div>
+          </div>
+          <div class="eca-why__item">
+            <div class="eca-why__item-icon"><!-- @license lucide-static v1.57.0 - ISC -->
+<svg
+  class="lucide lucide-git-fork"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="12" cy="18" r="3" />
+  <circle cx="6" cy="6" r="3" />
+  <circle cx="18" cy="6" r="3" />
+  <path d="M18 9v2c0 .6-.4 1-1 1H7c-.6 0-1-.4-1-1V9" />
+  <path d="M12 12v3" />
+</svg></div>
+            <div class="eca-why__item-text">
+              <span class="eca-why__item-title">Free &amp; Open Source</span>
+              <span class="eca-why__item-desc">Built with Clojure. Community-driven, transparent, and extensible.</span>
+            </div>
+          </div>
+          <div class="eca-why__item">
+            <div class="eca-why__item-icon"><!-- @license lucide-static v1.57.0 - ISC -->
+<svg
+  class="lucide lucide-chart-bar"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M3 3v16a2 2 0 0 0 2 2h16" />
+  <path d="M7 16h8" />
+  <path d="M7 11h12" />
+  <path d="M7 6h3" />
+</svg></div>
+            <div class="eca-why__item-text">
+              <span class="eca-why__item-title">OpenTelemetry</span>
+              <span class="eca-why__item-desc">Export metrics of tools, prompts, and server performance.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Major Features ── -->
+  <section class="eca-features">
+    <div class="eca-features__inner">
+      <h2 class="eca-section-title">Major Features</h2>
+      <p class="eca-section-desc">
+        Three core interactions powered by LLMs, plus a rich ecosystem of configuration and extensibility.
+      </p>
+
+      <!-- Hero row: the 3 core interactions -->
+      <div class="eca-features__hero">
+        <a href="features" class="eca-feature--hero">
+          <span class="eca-feature--hero__icon"><!-- @license lucide-static v1.57.0 - ISC -->
+<svg
+  class="lucide lucide-message-square"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z" />
+</svg></span>
+          <h3 class="eca-feature--hero__title">Chat</h3>
+          <p class="eca-feature--hero__desc">
+            Pair program with an AI agent that can read, write, and refactor your code.
+            Supports rollback, context injection, and multi-turn conversations.
+          </p>
+          <span class="eca-feature--hero__link">
+            Learn more <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+          </span>
+        </a>
+        <a href="config/rewrite" class="eca-feature--hero">
+          <span class="eca-feature--hero__icon"><!-- @license lucide-static v1.57.0 - ISC -->
+<svg
+  class="lucide lucide-pencil"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z" />
+  <path d="m15 5 4 4" />
+</svg></span>
+          <h3 class="eca-feature--hero__title">Rewrite</h3>
+          <p class="eca-feature--hero__desc">
+            Select code, describe the change, accept or reject the diff.
+            Fast, low-ceremony edits that work great with lightweight models.
+          </p>
+          <span class="eca-feature--hero__link">
+            Learn more <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+          </span>
+        </a>
+        <a href="config/completion" class="eca-feature--hero">
+          <span class="eca-feature--hero__icon"><!-- @license lucide-static v1.57.0 - ISC -->
+<svg
+  class="lucide lucide-zap"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M15.914 4a1.5 1.5 0 00-2.474-1.561l-9 9A1.5 1.5 0 005.5 14h4.002a.5.5 0 01.471.666L8.086 20a1.5 1.5 0 002.475 1.56l9-9A1.5 1.5 0 0018.5 10h-3.997a.5.5 0 01-.472-.667z" />
+</svg></span>
+          <h3 class="eca-feature--hero__title">Completion</h3>
+          <p class="eca-feature--hero__desc">
+            Inline AI-powered code suggestions as you type &mdash;
+            multi-line, context-aware, similar to Copilot-style predictions.
+          </p>
+          <span class="eca-feature--hero__link">
+            Learn more <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+          </span>
+        </a>
+      </div>
+
+      <!-- Group: Agents & Intelligence -->
+      <div class="eca-features__group">
+        <div class="eca-features__group-label">Agents &amp; Intelligence</div>
+        <div class="eca-features__grid">
+          <a href="config/agents" class="eca-feature">
+            <div class="eca-feature__icon"><!-- @license lucide-static v1.57.0 - ISC -->
+<svg
+  class="lucide lucide-bot"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 8V4H8" />
+  <rect width="16" height="12" x="4" y="8" rx="2" />
+  <path d="M2 14h2" />
+  <path d="M20 14h2" />
+  <path d="M15 13v2" />
+  <path d="M9 13v2" />
+</svg></div>
+            <div class="eca-feature__body">
+              <h3 class="eca-feature__title">Agents &amp; Subagents</h3>
+              <p class="eca-feature__desc">Built-in <em>code</em> and <em>plan</em> agents, with subagents for isolated parallel tasks and context window savings.</p>
+            </div>
+          </a>
+          <a href="config/tools" class="eca-feature">
+            <div class="eca-feature__icon"><!-- @license lucide-static v1.57.0 - ISC -->
+<svg
+  class="lucide lucide-wrench"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z" />
+</svg></div>
+            <div class="eca-feature__body">
+              <h3 class="eca-feature__title">Tools &amp; MCP</h3>
+              <p class="eca-feature__desc">Native file/shell/editor tools, MCP server integration, and custom tool definitions with fine-grained approval control.</p>
+            </div>
+          </a>
+          <div class="eca-feature">
+            <div class="eca-feature__icon"><!-- @license lucide-static v1.57.0 - ISC -->
+<svg
+  class="lucide lucide-paperclip"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m16 6-8.414 8.586a2 2 0 0 0 2.829 2.829l8.414-8.586a4 4 0 1 0-5.657-5.657l-8.379 8.551a6 6 0 1 0 8.485 8.485l8.379-8.551" />
+</svg></div>
+            <div class="eca-feature__body">
+              <h3 class="eca-feature__title">Context</h3>
+              <p class="eca-feature__desc">Attach files, directories, cursor position, MCP resources, or AGENTS.md auto-context to any prompt.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Group: Customization & Extensibility -->
+      <div class="eca-features__group">
+        <div class="eca-features__group-label">Customization &amp; Extensibility</div>
+        <div class="eca-features__grid">
+          <a href="config/rules" class="eca-feature">
+            <div class="eca-feature__icon"><!-- @license lucide-static v1.57.0 - ISC -->
+<svg
+  class="lucide lucide-ruler"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z" />
+  <path d="m14.5 12.5 2-2" />
+  <path d="m11.5 9.5 2-2" />
+  <path d="m8.5 6.5 2-2" />
+  <path d="m17.5 15.5 2-2" />
+</svg></div>
+            <div class="eca-feature__body">
+              <h3 class="eca-feature__title">Rules</h3>
+              <p class="eca-feature__desc">Define coding standards, conventions, and constraints the LLM must follow &mdash; globally or per project.</p>
+            </div>
+          </a>
+          <a href="config/skills" class="eca-feature">
+            <div class="eca-feature__icon"><!-- @license lucide-static v1.57.0 - ISC -->
+<svg
+  class="lucide lucide-target"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="12" cy="12" r="10" />
+  <circle cx="12" cy="12" r="6" />
+  <circle cx="12" cy="12" r="2" />
+</svg></div>
+            <div class="eca-feature__body">
+              <h3 class="eca-feature__title">Skills</h3>
+              <p class="eca-feature__desc">Structured knowledge units that teach the LLM how to handle specific tasks. Follows the agentskills.io spec.</p>
+            </div>
+          </a>
+          <a href="config/commands" class="eca-feature">
+            <div class="eca-feature__icon"><!-- @license lucide-static v1.57.0 - ISC -->
+<svg
+  class="lucide lucide-keyboard"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M10 8h.01" />
+  <path d="M12 12h.01" />
+  <path d="M14 8h.01" />
+  <path d="M16 12h.01" />
+  <path d="M18 8h.01" />
+  <path d="M6 8h.01" />
+  <path d="M7 16h10" />
+  <path d="M8 12h.01" />
+  <rect width="20" height="16" x="2" y="4" rx="2" />
+</svg></div>
+            <div class="eca-feature__body">
+              <h3 class="eca-feature__title">Commands</h3>
+              <p class="eca-feature__desc">Slash commands like <em>/init</em>, <em>/compact</em>, <em>/resume</em>, and custom commands you define yourself.</p>
+            </div>
+          </a>
+          <a href="config/hooks" class="eca-feature">
+            <div class="eca-feature__icon"><!-- @license lucide-static v1.57.0 - ISC -->
+<svg
+  class="lucide lucide-webhook"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M18 16.98h-5.99c-1.1 0-1.95.94-2.48 1.9A4 4 0 0 1 2 17c.01-.7.2-1.4.57-2" />
+  <path d="m6 17 3.13-5.78c.53-.97.1-2.18-.5-3.1a4 4 0 1 1 6.89-4.06" />
+  <path d="m12 6 3.13 5.73C15.66 12.7 16.9 13 18 13a4 4 0 0 1 0 8" />
+</svg></div>
+            <div class="eca-feature__body">
+              <h3 class="eca-feature__title">Hooks</h3>
+              <p class="eca-feature__desc">Before/after event callbacks to validate, notify, or trigger side effects on tool calls and prompts.</p>
+            </div>
+          </a>
+          <a href="config/variants" class="eca-feature">
+            <div class="eca-feature__icon"><!-- @license lucide-static v1.57.0 - ISC -->
+<svg
+  class="lucide lucide-shuffle"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m18 14 4 4-4 4" />
+  <path d="m18 2 4 4-4 4" />
+  <path d="M2 18h1.973a4 4 0 0 0 3.3-1.7l5.454-8.6a4 4 0 0 1 3.3-1.7H22" />
+  <path d="M2 6h1.972a4 4 0 0 1 3.6 2.2" />
+  <path d="M22 18h-6.041a4 4 0 0 1-3.3-1.8l-.359-.45" />
+</svg></div>
+            <div class="eca-feature__body">
+              <h3 class="eca-feature__title">Variants</h3>
+              <p class="eca-feature__desc">Switch between configuration presets on the fly &mdash; different models, reasoning effort, or custom setups.</p>
+            </div>
+          </a>
+          <a href="config/metrics" class="eca-feature">
+            <div class="eca-feature__icon"><!-- @license lucide-static v1.57.0 - ISC -->
+<svg
+  class="lucide lucide-chart-bar"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M3 3v16a2 2 0 0 0 2 2h16" />
+  <path d="M7 16h8" />
+  <path d="M7 11h12" />
+  <path d="M7 6h3" />
+</svg></div>
+            <div class="eca-feature__body">
+              <h3 class="eca-feature__title">Metrics</h3>
+              <p class="eca-feature__desc">OpenTelemetry integration for exporting tool usage, prompt performance, and server metrics.</p>
+            </div>
+          </a>
+          <a href="config/plugins" class="eca-feature">
+            <div class="eca-feature__icon"><!-- @license lucide-static v1.57.0 - ISC -->
+<svg
+  class="lucide lucide-puzzle"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M15.39 4.39a1 1 0 0 0 1.68-.474 2.5 2.5 0 1 1 3.014 3.015 1 1 0 0 0-.474 1.68l1.683 1.682a2.414 2.414 0 0 1 0 3.414L19.61 15.39a1 1 0 0 1-1.68-.474 2.5 2.5 0 1 0-3.014 3.015 1 1 0 0 1 .474 1.68l-1.683 1.682a2.414 2.414 0 0 1-3.414 0L8.61 19.61a1 1 0 0 0-1.68.474 2.5 2.5 0 1 1-3.014-3.015 1 1 0 0 0 .474-1.68l-1.683-1.682a2.414 2.414 0 0 1 0-3.414L4.39 8.61a1 1 0 0 1 1.68.474 2.5 2.5 0 1 0 3.014-3.015 1 1 0 0 1-.474-1.68l1.683-1.682a2.414 2.414 0 0 1 3.414 0z" />
+</svg></div>
+            <div class="eca-feature__body">
+              <h3 class="eca-feature__title">Plugins</h3>
+              <p class="eca-feature__desc">Extend ECA with community plugins &mdash; bundles of tools, rules, skills, and more from the marketplace.</p>
+            </div>
+          </a>
+          <a href="config/remote" class="eca-feature">
+            <div class="eca-feature__icon"><!-- @license lucide-static v1.57.0 - ISC -->
+<svg
+  class="lucide lucide-globe"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="12" cy="12" r="10" />
+  <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+  <path d="M2 12h20" />
+</svg></div>
+            <div class="eca-feature__body">
+              <h3 class="eca-feature__title">Remote</h3>
+              <p class="eca-feature__desc">Observe and control your chat session from a browser via an embedded web server and web.eca.dev.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Config Showcase ── -->
+  <section class="eca-showcase">
+    <div class="eca-showcase__inner">
+      <h2 class="eca-section-title">One Config To LLM Them All</h2>
+      <p class="eca-section-desc">
+        Everything is driven by a single JSON config. Here are a few things you can do.
+      </p>
+
+      <div class="eca-showcase__carousel">
+        <input type="radio" name="eca-sc" id="eca-sc-1" checked>
+        <input type="radio" name="eca-sc" id="eca-sc-2">
+        <input type="radio" name="eca-sc" id="eca-sc-3">
+        <input type="radio" name="eca-sc" id="eca-sc-4">
+        <input type="radio" name="eca-sc" id="eca-sc-5">
+        <input type="radio" name="eca-sc" id="eca-sc-6">
+        <input type="radio" name="eca-sc" id="eca-sc-7">
+        <input type="radio" name="eca-sc" id="eca-sc-8">
+
+        <div class="eca-showcase__dots">
+          <label for="eca-sc-1" class="eca-showcase__dot"><span class="eca-showcase__dot-emoji"><!-- @license lucide-static v1.57.0 - ISC -->
+<svg
+  class="lucide lucide-globe"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="12" cy="12" r="10" />
+  <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+  <path d="M2 12h20" />
+</svg></span> Any Provider</label>
+          <label for="eca-sc-2" class="eca-showcase__dot"><span class="eca-showcase__dot-emoji"><!-- @license lucide-static v1.57.0 - ISC -->
+<svg
+  class="lucide lucide-target"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="12" cy="12" r="10" />
+  <circle cx="12" cy="12" r="6" />
+  <circle cx="12" cy="12" r="2" />
+</svg></span> Skills</label>
+          <label for="eca-sc-3" class="eca-showcase__dot"><span class="eca-showcase__dot-emoji"><!-- @license lucide-static v1.57.0 - ISC -->
+<svg
+  class="lucide lucide-webhook"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M18 16.98h-5.99c-1.1 0-1.95.94-2.48 1.9A4 4 0 0 1 2 17c.01-.7.2-1.4.57-2" />
+  <path d="m6 17 3.13-5.78c.53-.97.1-2.18-.5-3.1a4 4 0 1 1 6.89-4.06" />
+  <path d="m12 6 3.13 5.73C15.66 12.7 16.9 13 18 13a4 4 0 0 1 0 8" />
+</svg></span> Hooks</label>
+          <label for="eca-sc-4" class="eca-showcase__dot"><span class="eca-showcase__dot-emoji"><!-- @license lucide-static v1.57.0 - ISC -->
+<svg
+  class="lucide lucide-link"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg></span> MCP Servers</label>
+          <span class="eca-showcase__dot-group">
+            <span class="eca-showcase__dot-group-label">Custom</span>
+            <label for="eca-sc-5" class="eca-showcase__dot"><span class="eca-showcase__dot-emoji"><!-- @license lucide-static v1.57.0 - ISC -->
+<svg
+  class="lucide lucide-bot"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 8V4H8" />
+  <rect width="16" height="12" x="4" y="8" rx="2" />
+  <path d="M2 14h2" />
+  <path d="M20 14h2" />
+  <path d="M15 13v2" />
+  <path d="M9 13v2" />
+</svg></span> Agents</label>
+            <label for="eca-sc-6" class="eca-showcase__dot"><span class="eca-showcase__dot-emoji"><!-- @license lucide-static v1.57.0 - ISC -->
+<svg
+  class="lucide lucide-keyboard"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M10 8h.01" />
+  <path d="M12 12h.01" />
+  <path d="M14 8h.01" />
+  <path d="M16 12h.01" />
+  <path d="M18 8h.01" />
+  <path d="M6 8h.01" />
+  <path d="M7 16h10" />
+  <path d="M8 12h.01" />
+  <rect width="20" height="16" x="2" y="4" rx="2" />
+</svg></span> Commands</label>
+            <label for="eca-sc-7" class="eca-showcase__dot"><span class="eca-showcase__dot-emoji"><!-- @license lucide-static v1.57.0 - ISC -->
+<svg
+  class="lucide lucide-wrench"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z" />
+</svg></span> Tools</label>
+            <label for="eca-sc-8" class="eca-showcase__dot"><span class="eca-showcase__dot-emoji"><!-- @license lucide-static v1.57.0 - ISC -->
+<svg
+  class="lucide lucide-puzzle"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M15.39 4.39a1 1 0 0 0 1.68-.474 2.5 2.5 0 1 1 3.014 3.015 1 1 0 0 0-.474 1.68l1.683 1.682a2.414 2.414 0 0 1 0 3.414L19.61 15.39a1 1 0 0 1-1.68-.474 2.5 2.5 0 1 0-3.014 3.015 1 1 0 0 1 .474 1.68l-1.683 1.682a2.414 2.414 0 0 1-3.414 0L8.61 19.61a1 1 0 0 0-1.68.474 2.5 2.5 0 1 1-3.014-3.015 1 1 0 0 0 .474-1.68l-1.683-1.682a2.414 2.414 0 0 1 0-3.414L4.39 8.61a1 1 0 0 1 1.68.474 2.5 2.5 0 1 0 3.014-3.015 1 1 0 0 1-.474-1.68l1.683-1.682a2.414 2.414 0 0 1 3.414 0z" />
+</svg></span> Plugins</label>
+          </span>
+        </div>
+
+        <div class="eca-showcase__slides">
+
+          <!-- 1: Any Provider -->
+          <div class="eca-showcase__slide eca-showcase__slide--1">
+            <div class="eca-showcase__text">
+              <span class="eca-showcase__badge">Providers</span>
+              <h3 class="eca-showcase__slide-title">Use any LLM provider</h3>
+              <p class="eca-showcase__slide-desc">
+                Built-in support for OpenAI, Anthropic, Copilot, Gemini, and Ollama.
+                Point to any OpenAI-compatible API &mdash; DeepSeek, LM Studio, OpenRouter,
+                your company&rsquo;s internal endpoint &mdash; with a few lines of config.
+              </p>
+              <a href="config/models" class="eca-showcase__slide-link">
+                Explore models config
+                <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+              </a>
+            </div>
+            <div class="eca-showcase__code-wrap">
+              <div class="eca-showcase__code-bar">
+      <span class="eca-showcase__code-bar-dot eca-showcase__code-bar-dot--red"></span>
+      <span class="eca-showcase__code-bar-dot eca-showcase__code-bar-dot--yellow"></span>
+      <span class="eca-showcase__code-bar-dot eca-showcase__code-bar-dot--green"></span>
+      <span class="eca-showcase__code-bar-title">~/.config/eca/config.json</span>
+    </div>
+              <div class="eca-showcase__code"><pre><span class="hl-brace">{</span>
+  <span class="hl-key">"providers"</span>: <span class="hl-brace">{</span>
+    <span class="hl-key">"my-company"</span>: <span class="hl-brace">{</span>
+      <span class="hl-key">"api"</span>: <span class="hl-str">"openai-chat"</span>,
+      <span class="hl-key">"url"</span>: <span class="hl-str">"${env:MY_COMPANY_API_URL}"</span>,
+      <span class="hl-key">"key"</span>: <span class="hl-str">"${env:MY_COMPANY_API_KEY}"</span>,
+      <span class="hl-key">"models"</span>: <span class="hl-brace">{</span>
+        <span class="hl-key">"gpt-5"</span>: <span class="hl-brace">{}</span>,
+        <span class="hl-key">"deepseek-r1"</span>: <span class="hl-brace">{}</span>
+      <span class="hl-brace">}</span>
+    <span class="hl-brace">}</span>
+  <span class="hl-brace">}</span>
+<span class="hl-brace">}</span></pre></div>
+            </div>
+          </div>
+
+          <!-- 2: Skills -->
+          <div class="eca-showcase__slide eca-showcase__slide--2">
+            <div class="eca-showcase__text">
+              <span class="eca-showcase__badge">Skills</span>
+              <h3 class="eca-showcase__slide-title">Teach the LLM new abilities</h3>
+              <p class="eca-showcase__slide-desc">
+                Skills are structured knowledge units the agent loads on demand.
+                Bundle instructions, scripts, and assets into a folder &mdash;
+                the LLM learns to use them when the task matches.
+                Follows the <a href="https://agentskills.io" target="_blank" class="eca-showcase__inline-link">agentskills.io</a> spec.
+              </p>
+              <a href="config/skills" class="eca-showcase__slide-link">
+                Explore skills config
+                <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+              </a>
+            </div>
+            <div class="eca-showcase__code-wrap">
+              <div class="eca-showcase__code-bar">
+      <span class="eca-showcase__code-bar-dot eca-showcase__code-bar-dot--red"></span>
+      <span class="eca-showcase__code-bar-dot eca-showcase__code-bar-dot--yellow"></span>
+      <span class="eca-showcase__code-bar-dot eca-showcase__code-bar-dot--green"></span>
+      <span class="eca-showcase__code-bar-title">~/.config/eca/skills/lint-fix/SKILL.md</span>
+    </div>
+              <div class="eca-showcase__code"><pre><span class="hl-comm">---</span>
+<span class="hl-key">name</span>: <span class="hl-str">lint-fix</span>
+<span class="hl-key">description</span>: <span class="hl-str">Learn how to lint and fix code</span>
+<span class="hl-comm">---</span>
+
+<span class="hl-comm"># Instructions</span>
+
+Run <span class="hl-str">`clojure-lsp diagnostics`</span> to find issues.
+For each diagnostic, apply the suggested fix.
+Always run diagnostics again after fixing to
+confirm no regressions.</pre></div>
+            </div>
+          </div>
+
+          <!-- 3: Hooks -->
+          <div class="eca-showcase__slide eca-showcase__slide--3">
+            <div class="eca-showcase__text">
+              <span class="eca-showcase__badge">Hooks</span>
+              <h3 class="eca-showcase__slide-title">Automate before &amp; after events</h3>
+              <p class="eca-showcase__slide-desc">
+                Intercept tool calls to enforce policies, get desktop notifications when prompts finish,
+                or run validation scripts automatically. Wire any shell command to any ECA event.
+              </p>
+              <a href="config/hooks" class="eca-showcase__slide-link">
+                Explore hooks config
+                <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+              </a>
+            </div>
+            <div class="eca-showcase__code-wrap">
+              <div class="eca-showcase__code-bar">
+      <span class="eca-showcase__code-bar-dot eca-showcase__code-bar-dot--red"></span>
+      <span class="eca-showcase__code-bar-dot eca-showcase__code-bar-dot--yellow"></span>
+      <span class="eca-showcase__code-bar-dot eca-showcase__code-bar-dot--green"></span>
+      <span class="eca-showcase__code-bar-title">~/.config/eca/config.json</span>
+    </div>
+              <div class="eca-showcase__code"><pre><span class="hl-brace">{</span>
+  <span class="hl-key">"hooks"</span>: <span class="hl-brace">{</span>
+    <span class="hl-key">"notify-me"</span>: <span class="hl-brace">{</span>
+      <span class="hl-key">"type"</span>: <span class="hl-str">"postRequest"</span>,
+      <span class="hl-key">"visible"</span>: <span class="hl-bool">false</span>,
+      <span class="hl-key">"actions"</span>: [<span class="hl-brace">{</span>
+        <span class="hl-key">"type"</span>: <span class="hl-str">"shell"</span>,
+        <span class="hl-key">"shell"</span>: <span class="hl-str">"notify-send 'Prompt finished!'"</span>
+      <span class="hl-brace">}</span>]
+    <span class="hl-brace">}</span>
+  <span class="hl-brace">}</span>
+<span class="hl-brace">}</span></pre></div>
+            </div>
+          </div>
+
+          <!-- 4: MCP Servers -->
+          <div class="eca-showcase__slide eca-showcase__slide--4">
+            <div class="eca-showcase__text">
+              <span class="eca-showcase__badge">MCP Servers</span>
+              <h3 class="eca-showcase__slide-title">Plug in any MCP server</h3>
+              <p class="eca-showcase__slide-desc">
+                Connect MCP-compatible servers for memory, databases, APIs, or anything else.
+                Tools, resources, and prompts from the server become automatically available to the agent.
+              </p>
+              <a href="config/tools" class="eca-showcase__slide-link">
+                Explore MCP config
+                <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+              </a>
+            </div>
+            <div class="eca-showcase__code-wrap">
+              <div class="eca-showcase__code-bar">
+      <span class="eca-showcase__code-bar-dot eca-showcase__code-bar-dot--red"></span>
+      <span class="eca-showcase__code-bar-dot eca-showcase__code-bar-dot--yellow"></span>
+      <span class="eca-showcase__code-bar-dot eca-showcase__code-bar-dot--green"></span>
+      <span class="eca-showcase__code-bar-title">~/.config/eca/config.json</span>
+    </div>
+              <div class="eca-showcase__code"><pre><span class="hl-brace">{</span>
+  <span class="hl-key">"mcpServers"</span>: <span class="hl-brace">{</span>
+    <span class="hl-key">"memory"</span>: <span class="hl-brace">{</span>
+      <span class="hl-key">"command"</span>: <span class="hl-str">"npx"</span>,
+      <span class="hl-key">"args"</span>: [<span class="hl-str">"-y"</span>, <span class="hl-str">"@modelcontextprotocol/server-memory"</span>]
+    <span class="hl-brace">}</span>,
+    <span class="hl-key">"postgres"</span>: <span class="hl-brace">{</span>
+      <span class="hl-key">"command"</span>: <span class="hl-str">"npx"</span>,
+      <span class="hl-key">"args"</span>: [<span class="hl-str">"-y"</span>, <span class="hl-str">"@modelcontextprotocol/server-postgres"</span>,
+              <span class="hl-str">"${env:DATABASE_URL}"</span>]
+    <span class="hl-brace">}</span>
+  <span class="hl-brace">}</span>
+<span class="hl-brace">}</span></pre></div>
+            </div>
+          </div>
+
+          <!-- 5: Custom Agents -->
+          <div class="eca-showcase__slide eca-showcase__slide--5">
+            <div class="eca-showcase__text">
+              <span class="eca-showcase__badge">Custom Agents</span>
+              <h3 class="eca-showcase__slide-title">Build specialized AI teammates</h3>
+              <p class="eca-showcase__slide-desc">
+                Create agents and subagents with their own system prompts, models, and tool access.
+                Subagents run in isolated contexts for parallel work without polluting the main conversation.
+              </p>
+              <a href="config/agents" class="eca-showcase__slide-link">
+                Explore agents config
+                <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+              </a>
+            </div>
+            <div class="eca-showcase__code-wrap">
+              <div class="eca-showcase__code-bar">
+      <span class="eca-showcase__code-bar-dot eca-showcase__code-bar-dot--red"></span>
+      <span class="eca-showcase__code-bar-dot eca-showcase__code-bar-dot--yellow"></span>
+      <span class="eca-showcase__code-bar-dot eca-showcase__code-bar-dot--green"></span>
+      <span class="eca-showcase__code-bar-title">~/.config/eca/config.json</span>
+    </div>
+              <div class="eca-showcase__code"><pre><span class="hl-brace">{</span>
+  <span class="hl-key">"agent"</span>: <span class="hl-brace">{</span>
+    <span class="hl-key">"reviewer"</span>: <span class="hl-brace">{</span>
+      <span class="hl-key">"mode"</span>: <span class="hl-str">"subagent"</span>,
+      <span class="hl-key">"description"</span>: <span class="hl-str">"Code review specialist"</span>,
+      <span class="hl-key">"systemPrompt"</span>: <span class="hl-str">"You are a senior code reviewer..."</span>,
+      <span class="hl-key">"defaultModel"</span>: <span class="hl-str">"anthropic/sonnet-4.5"</span>,
+      <span class="hl-key">"maxSteps"</span>: <span class="hl-num">25</span>
+    <span class="hl-brace">}</span>
+  <span class="hl-brace">}</span>
+<span class="hl-brace">}</span></pre></div>
+            </div>
+          </div>
+
+          <!-- 6: Custom Commands -->
+          <div class="eca-showcase__slide eca-showcase__slide--6">
+            <div class="eca-showcase__text">
+              <span class="eca-showcase__badge">Custom Commands</span>
+              <h3 class="eca-showcase__slide-title">Your own slash commands</h3>
+              <p class="eca-showcase__slide-desc">
+                Drop a markdown file in <code>.eca/commands/</code> and it becomes a slash command.
+                Use <code>$ARG1</code>, <code>$ARG2</code> for arguments &mdash;
+                perfect for repeatable prompts, review checklists, or team workflows.
+              </p>
+              <a href="config/commands" class="eca-showcase__slide-link">
+                Explore commands config
+                <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+              </a>
+            </div>
+            <div class="eca-showcase__code-wrap">
+              <div class="eca-showcase__code-bar">
+      <span class="eca-showcase__code-bar-dot eca-showcase__code-bar-dot--red"></span>
+      <span class="eca-showcase__code-bar-dot eca-showcase__code-bar-dot--yellow"></span>
+      <span class="eca-showcase__code-bar-dot eca-showcase__code-bar-dot--green"></span>
+      <span class="eca-showcase__code-bar-title">~/.config/eca/commands/check-performance.md</span>
+    </div>
+              <div class="eca-showcase__code"><pre><span class="hl-comm"># Available as /check-performance</span>
+
+Analyze <span class="hl-str">$ARG1</span> for performance issues.
+
+Focus on:
+- N+1 queries and unnecessary DB calls
+- Memory allocations in hot paths
+- Blocking I/O on async threads
+
+Suggest fixes with benchmarks when possible.
+If no file is specified, scan the most recent
+git changes.</pre></div>
+            </div>
+          </div>
+
+          <!-- 7: Custom Tools -->
+          <div class="eca-showcase__slide eca-showcase__slide--7">
+            <div class="eca-showcase__text">
+              <span class="eca-showcase__badge">Custom Tools</span>
+              <h3 class="eca-showcase__slide-title">Give the LLM any CLI tool</h3>
+              <p class="eca-showcase__slide-desc">
+                Wrap any command-line program as a tool the agent can call.
+                Define the schema, the command template, and ECA handles the rest &mdash;
+                the LLM learns to use it automatically.
+              </p>
+              <a href="config/tools" class="eca-showcase__slide-link">
+                Explore tools config
+                <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+              </a>
+            </div>
+            <div class="eca-showcase__code-wrap">
+              <div class="eca-showcase__code-bar">
+      <span class="eca-showcase__code-bar-dot eca-showcase__code-bar-dot--red"></span>
+      <span class="eca-showcase__code-bar-dot eca-showcase__code-bar-dot--yellow"></span>
+      <span class="eca-showcase__code-bar-dot eca-showcase__code-bar-dot--green"></span>
+      <span class="eca-showcase__code-bar-title">~/.config/eca/config.json</span>
+    </div>
+              <div class="eca-showcase__code"><pre><span class="hl-brace">{</span>
+  <span class="hl-key">"customTools"</span>: <span class="hl-brace">{</span>
+    <span class="hl-key">"web-search"</span>: <span class="hl-brace">{</span>
+      <span class="hl-key">"description"</span>: <span class="hl-str">"Fetches URL content as Markdown."</span>,
+      <span class="hl-key">"command"</span>: <span class="hl-str">"trafilatura -u "</span>,
+      <span class="hl-key">"schema"</span>: <span class="hl-brace">{</span>
+        <span class="hl-key">"properties"</span>: <span class="hl-brace">{</span>
+          <span class="hl-key">"url"</span>: <span class="hl-brace">{</span> <span class="hl-key">"type"</span>: <span class="hl-str">"string"</span> <span class="hl-brace">}</span>
+        <span class="hl-brace">}</span>
+      <span class="hl-brace">}</span>
+    <span class="hl-brace">}</span>
+  <span class="hl-brace">}</span>
+<span class="hl-brace">}</span></pre></div>
+            </div>
+          </div>
+
+          <!-- 8: Plugins Marketplace -->
+          <div class="eca-showcase__slide eca-showcase__slide--8">
+            <div class="eca-showcase__text">
+              <span class="eca-showcase__badge">Plugins</span>
+              <h3 class="eca-showcase__slide-title">Install plugins from the marketplace</h3>
+              <p class="eca-showcase__slide-desc">
+                Browse <a href="https://plugins.eca.dev" target="_blank" class="eca-showcase__inline-link">plugins.eca.dev</a> for community plugins &mdash;
+                bundles of skills, agents, commands, rules, hooks, and more.
+                Install with a single line of config, or add your own plugin sources.
+              </p>
+              <a href="config/plugins" class="eca-showcase__slide-link">
+                Explore plugins config
+                <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+              </a>
+            </div>
+            <div class="eca-showcase__code-wrap">
+              <div class="eca-showcase__code-bar">
+      <span class="eca-showcase__code-bar-dot eca-showcase__code-bar-dot--red"></span>
+      <span class="eca-showcase__code-bar-dot eca-showcase__code-bar-dot--yellow"></span>
+      <span class="eca-showcase__code-bar-dot eca-showcase__code-bar-dot--green"></span>
+      <span class="eca-showcase__code-bar-title">~/.config/eca/config.json</span>
+    </div>
+              <div class="eca-showcase__code"><pre><span class="hl-brace">{</span>
+  <span class="hl-key">"plugins"</span>: <span class="hl-brace">{</span>
+    <span class="hl-comm">// Install from the official marketplace</span>
+    <span class="hl-key">"install"</span>: [<span class="hl-str">"secret-guard"</span>, <span class="hl-str">"tdd"</span>, <span class="hl-str">"security-review"</span>],
+
+    <span class="hl-comm">// Add custom plugin sources</span>
+    <span class="hl-key">"sources"</span>: <span class="hl-brace">{</span>
+      <span class="hl-key">"my-team"</span>: <span class="hl-brace">{</span>
+        <span class="hl-key">"url"</span>: <span class="hl-str">"https://github.com/my-org/eca-plugins"</span>
+      <span class="hl-brace">}</span>
+    <span class="hl-brace">}</span>
+  <span class="hl-brace">}</span>
+<span class="hl-brace">}</span></pre></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Trusted by ── -->
+  <section class="eca-trusted" aria-label="Trusted by">
+    <h2 class="eca-trusted__title">Trusted by the best</h2>
+    <ul class="eca-trusted__logos">
+      <li><img src="images/org-logos/nu/02_nulogo_black.png" alt="Nubank" loading="lazy"></li>
+      <li><img src="images/org-logos/flexiana/flexiana-logo.avif" alt="Flexiana" loading="lazy"></li>
+      <li><img src="images/org-logos/biolit/Biolit_pos.png" alt="Biolit" loading="lazy"></li>
+      <li><img src="images/org-logos/team-ohana/team-ohana.svg" alt="Team Ohana" loading="lazy"></li>
+    </ul>
+  </section>
+
+  <!-- ── Community ── -->
+  <section class="eca-community">
+    <div class="eca-community__inner">
+      <div class="eca-community__badge">
+        <svg viewBox="0 0 24 24"><path fill="#3DA639" d="M11.959.447A11.938 11.938 0 000 12.407c0 5.576 3.874 10.097 7.783 11.114.193.05.392-.05.467-.234l2.771-6.822a.396.396 0 00-.246-.528C9.365 15.47 8.53 14.32 8.48 12.4c-.024-1.828 1.5-3.45 3.561-3.447 1.931.003 3.479 1.632 3.479 3.453 0 .966-.203 1.687-.575 2.238-.371.552-.922.951-1.695 1.239a.396.396 0 00-.23.515l2.685 6.903a.396.396 0 00.465.24C20.163 22.534 24 18.062 24 12.406 24 5.804 18.603.447 11.959.447zm0 .791c6.22 0 11.25 4.997 11.25 11.168 0 5.138-3.423 9.208-6.895 10.272L13.9 16.47c.703-.308 1.302-.79 1.702-1.384.477-.708.709-1.602.709-2.68 0-2.266-1.898-4.24-4.27-4.244-2.48-.004-4.382 1.976-4.352 4.25.023 1.995.934 3.492 2.451 4.13L7.648 22.66C4.251 21.592.791 17.458.791 12.406A11.13 11.13 0 0111.959 1.238z"/></svg>
+        Free &amp; Open Source
+      </div>
+      <h2 class="eca-community__title">Join the Community</h2>
+      <p class="eca-community__desc">
+        ECA is built in the open. Star the repo to show your support,
+        sponsor the project to keep it going, or jump in to our Slack channel and share your thoughts.
+      </p>
+      <div class="eca-community__links">
+        <a href="https://github.com/editor-code-assistant/eca" class="eca-btn eca-btn--github" target="_blank">
+          <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+          Star on GitHub
+        </a>
+        <a href="https://github.com/sponsors/ericdallo" class="eca-btn eca-btn--sponsor" target="_blank">
+          <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          Sponsor ECA
+        </a>
+        <a href="https://clojurians.slack.com/archives/C093426FPUG" class="eca-btn eca-btn--slack" target="_blank">
+          <svg viewBox="0 0 24 24"><path fill="currentColor" d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zm1.271 0a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zm0 1.271a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zm10.122 2.521a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zm-1.268 0a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zm-2.523 10.122a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zm0-1.268a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>
+          Discuss on Slack
+        </a>
+      </div>
+      <!-- Contributors -->
+      <div class="eca-community__contributors">
+        <p class="eca-community__contributors-label">Made possible by our contributors</p>
+        <div class="eca-marquee">
+          <div class="eca-marquee__track">
+            
+            <a class="eca-marquee__avatar-link" href="https://github.com/ericdallo" target="_blank" data-tip="ericdallo" aria-label="ericdallo"><img class="eca-marquee__avatar" src="https://avatars.githubusercontent.com/u/7820865?v=4&s=112" alt="ericdallo" loading="lazy"></a>
+            
+            <a class="eca-marquee__avatar-link" href="https://github.com/zikajk" target="_blank" data-tip="zikajk" aria-label="zikajk"><img class="eca-marquee__avatar" src="https://avatars.githubusercontent.com/u/40757859?v=4&s=112" alt="zikajk" loading="lazy"></a>
+            
+            <a class="eca-marquee__avatar-link" href="https://github.com/bombaywalla" target="_blank" data-tip="bombaywalla" aria-label="bombaywalla"><img class="eca-marquee__avatar" src="https://avatars.githubusercontent.com/u/4961347?v=4&s=112" alt="bombaywalla" loading="lazy"></a>
+            
+            <a class="eca-marquee__avatar-link" href="https://github.com/ArthurHeymans" target="_blank" data-tip="ArthurHeymans" aria-label="ArthurHeymans"><img class="eca-marquee__avatar" src="https://avatars.githubusercontent.com/u/15137817?v=4&s=112" alt="ArthurHeymans" loading="lazy"></a>
+            
+            <a class="eca-marquee__avatar-link" href="https://github.com/ChetanAtGNU" target="_blank" data-tip="ChetanAtGNU" aria-label="ChetanAtGNU"><img class="eca-marquee__avatar" src="https://avatars.githubusercontent.com/u/121243349?v=4&s=112" alt="ChetanAtGNU" loading="lazy"></a>
+            
+            <a class="eca-marquee__avatar-link" href="https://github.com/marlonjsilva" target="_blank" data-tip="marlonjsilva" aria-label="marlonjsilva"><img class="eca-marquee__avatar" src="https://avatars.githubusercontent.com/u/20212288?v=4&s=112" alt="marlonjsilva" loading="lazy"></a>
+            
+            <a class="eca-marquee__avatar-link" href="https://github.com/ikappaki" target="_blank" data-tip="ikappaki" aria-label="ikappaki"><img class="eca-marquee__avatar" src="https://avatars.githubusercontent.com/u/34983288?v=4&s=112" alt="ikappaki" loading="lazy"></a>
+            
+            <a class="eca-marquee__avatar-link" href="https://github.com/sunng87" target="_blank" data-tip="sunng87" aria-label="sunng87"><img class="eca-marquee__avatar" src="https://avatars.githubusercontent.com/u/221942?v=4&s=112" alt="sunng87" loading="lazy"></a>
+            
+            <a class="eca-marquee__avatar-link" href="https://github.com/CsBigDataHub" target="_blank" data-tip="CsBigDataHub" aria-label="CsBigDataHub"><img class="eca-marquee__avatar" src="https://avatars.githubusercontent.com/u/23665525?v=4&s=112" alt="CsBigDataHub" loading="lazy"></a>
+            
+            <a class="eca-marquee__avatar-link" href="https://github.com/r0man" target="_blank" data-tip="r0man" aria-label="r0man"><img class="eca-marquee__avatar" src="https://avatars.githubusercontent.com/u/21566?v=4&s=112" alt="r0man" loading="lazy"></a>
+            
+            <a class="eca-marquee__avatar-link" href="https://github.com/lukaszkorecki" target="_blank" data-tip="lukaszkorecki" aria-label="lukaszkorecki"><img class="eca-marquee__avatar" src="https://avatars.githubusercontent.com/u/104818?v=4&s=112" alt="lukaszkorecki" loading="lazy"></a>
+            
+            <a class="eca-marquee__avatar-link" href="https://github.com/sg-qwt" target="_blank" data-tip="sg-qwt" aria-label="sg-qwt"><img class="eca-marquee__avatar" src="https://avatars.githubusercontent.com/u/115715554?v=4&s=112" alt="sg-qwt" loading="lazy"></a>
+            
+            <a class="eca-marquee__avatar-link" href="https://github.com/joaopluigi" target="_blank" data-tip="joaopluigi" aria-label="joaopluigi"><img class="eca-marquee__avatar" src="https://avatars.githubusercontent.com/u/3515913?v=4&s=112" alt="joaopluigi" loading="lazy"></a>
+            
+            <a class="eca-marquee__avatar-link" href="https://github.com/afucher" target="_blank" data-tip="afucher" aria-label="afucher"><img class="eca-marquee__avatar" src="https://avatars.githubusercontent.com/u/3756185?v=4&s=112" alt="afucher" loading="lazy"></a>
+            
+            <a class="eca-marquee__avatar-link" href="https://github.com/Ramblurr" target="_blank" data-tip="Ramblurr" aria-label="Ramblurr"><img class="eca-marquee__avatar" src="https://avatars.githubusercontent.com/u/14830?v=4&s=112" alt="Ramblurr" loading="lazy"></a>
+            
+            <a class="eca-marquee__avatar-link" href="https://github.com/deejayem" target="_blank" data-tip="deejayem" aria-label="deejayem"><img class="eca-marquee__avatar" src="https://avatars.githubusercontent.com/u/2564003?v=4&s=112" alt="deejayem" loading="lazy"></a>
+            
+            <a class="eca-marquee__avatar-link" href="https://github.com/liolin" target="_blank" data-tip="liolin" aria-label="liolin"><img class="eca-marquee__avatar" src="https://avatars.githubusercontent.com/u/19079017?v=4&s=112" alt="liolin" loading="lazy"></a>
+            
+            <a class="eca-marquee__avatar-link" href="https://github.com/tomgeorge" target="_blank" data-tip="tomgeorge" aria-label="tomgeorge"><img class="eca-marquee__avatar" src="https://avatars.githubusercontent.com/u/1291508?v=4&s=112" alt="tomgeorge" loading="lazy"></a>
+            
+            <a class="eca-marquee__avatar-link" href="https://github.com/jilen" target="_blank" data-tip="jilen" aria-label="jilen"><img class="eca-marquee__avatar" src="https://avatars.githubusercontent.com/u/546573?v=4&s=112" alt="jilen" loading="lazy"></a>
+            
+            
+            
+            <a class="eca-marquee__avatar-link" href="https://github.com/ericdallo" target="_blank" data-tip="ericdallo" aria-hidden="true"><img class="eca-marquee__avatar" src="https://avatars.githubusercontent.com/u/7820865?v=4&s=112" alt="" loading="lazy"></a>
+            
+            <a class="eca-marquee__avatar-link" href="https://github.com/zikajk" target="_blank" data-tip="zikajk" aria-hidden="true"><img class="eca-marquee__avatar" src="https://avatars.githubusercontent.com/u/40757859?v=4&s=112" alt="" loading="lazy"></a>
+            
+            <a class="eca-marquee__avatar-link" href="https://github.com/bombaywalla" target="_blank" data-tip="bombaywalla" aria-hidden="true"><img class="eca-marquee__avatar" src="https://avatars.githubusercontent.com/u/4961347?v=4&s=112" alt="" loading="lazy"></a>
+            
+            <a class="eca-marquee__avatar-link" href="https://github.com/ArthurHeymans" target="_blank" data-tip="ArthurHeymans" aria-hidden="true"><img class="eca-marquee__avatar" src="https://avatars.githubusercontent.com/u/15137817?v=4&s=112" alt="" loading="lazy"></a>
+            
+            <a class="eca-marquee__avatar-link" href="https://github.com/ChetanAtGNU" target="_blank" data-tip="ChetanAtGNU" aria-hidden="true"><img class="eca-marquee__avatar" src="https://avatars.githubusercontent.com/u/121243349?v=4&s=112" alt="" loading="lazy"></a>
+            
+            <a class="eca-marquee__avatar-link" href="https://github.com/marlonjsilva" target="_blank" data-tip="marlonjsilva" aria-hidden="true"><img class="eca-marquee__avatar" src="https://avatars.githubusercontent.com/u/20212288?v=4&s=112" alt="" loading="lazy"></a>
+            
+            <a class="eca-marquee__avatar-link" href="https://github.com/ikappaki" target="_blank" data-tip="ikappaki" aria-hidden="true"><img class="eca-marquee__avatar" src="https://avatars.githubusercontent.com/u/34983288?v=4&s=112" alt="" loading="lazy"></a>
+            
+            <a class="eca-marquee__avatar-link" href="https://github.com/sunng87" target="_blank" data-tip="sunng87" aria-hidden="true"><img class="eca-marquee__avatar" src="https://avatars.githubusercontent.com/u/221942?v=4&s=112" alt="" loading="lazy"></a>
+            
+            <a class="eca-marquee__avatar-link" href="https://github.com/CsBigDataHub" target="_blank" data-tip="CsBigDataHub" aria-hidden="true"><img class="eca-marquee__avatar" src="https://avatars.githubusercontent.com/u/23665525?v=4&s=112" alt="" loading="lazy"></a>
+            
+            <a class="eca-marquee__avatar-link" href="https://github.com/r0man" target="_blank" data-tip="r0man" aria-hidden="true"><img class="eca-marquee__avatar" src="https://avatars.githubusercontent.com/u/21566?v=4&s=112" alt="" loading="lazy"></a>
+            
+            <a class="eca-marquee__avatar-link" href="https://github.com/lukaszkorecki" target="_blank" data-tip="lukaszkorecki" aria-hidden="true"><img class="eca-marquee__avatar" src="https://avatars.githubusercontent.com/u/104818?v=4&s=112" alt="" loading="lazy"></a>
+            
+            <a class="eca-marquee__avatar-link" href="https://github.com/sg-qwt" target="_blank" data-tip="sg-qwt" aria-hidden="true"><img class="eca-marquee__avatar" src="https://avatars.githubusercontent.com/u/115715554?v=4&s=112" alt="" loading="lazy"></a>
+            
+            <a class="eca-marquee__avatar-link" href="https://github.com/joaopluigi" target="_blank" data-tip="joaopluigi" aria-hidden="true"><img class="eca-marquee__avatar" src="https://avatars.githubusercontent.com/u/3515913?v=4&s=112" alt="" loading="lazy"></a>
+            
+            <a class="eca-marquee__avatar-link" href="https://github.com/afucher" target="_blank" data-tip="afucher" aria-hidden="true"><img class="eca-marquee__avatar" src="https://avatars.githubusercontent.com/u/3756185?v=4&s=112" alt="" loading="lazy"></a>
+            
+            <a class="eca-marquee__avatar-link" href="https://github.com/Ramblurr" target="_blank" data-tip="Ramblurr" aria-hidden="true"><img class="eca-marquee__avatar" src="https://avatars.githubusercontent.com/u/14830?v=4&s=112" alt="" loading="lazy"></a>
+            
+            <a class="eca-marquee__avatar-link" href="https://github.com/deejayem" target="_blank" data-tip="deejayem" aria-hidden="true"><img class="eca-marquee__avatar" src="https://avatars.githubusercontent.com/u/2564003?v=4&s=112" alt="" loading="lazy"></a>
+            
+            <a class="eca-marquee__avatar-link" href="https://github.com/liolin" target="_blank" data-tip="liolin" aria-hidden="true"><img class="eca-marquee__avatar" src="https://avatars.githubusercontent.com/u/19079017?v=4&s=112" alt="" loading="lazy"></a>
+            
+            <a class="eca-marquee__avatar-link" href="https://github.com/tomgeorge" target="_blank" data-tip="tomgeorge" aria-hidden="true"><img class="eca-marquee__avatar" src="https://avatars.githubusercontent.com/u/1291508?v=4&s=112" alt="" loading="lazy"></a>
+            
+            <a class="eca-marquee__avatar-link" href="https://github.com/jilen" target="_blank" data-tip="jilen" aria-hidden="true"><img class="eca-marquee__avatar" src="https://avatars.githubusercontent.com/u/546573?v=4&s=112" alt="" loading="lazy"></a>
+            
+          </div>
+        </div>
+      </div>
+      <p class="eca-community__clojure">
+        Built with <a href="https://clojure.org" target="_blank">Clojure</a>.
+        Inspired by <a href="https://microsoft.github.io/language-server-protocol/" target="_blank">LSP</a>.
+        Community-driven and <a href="https://github.com/editor-code-assistant/eca/blob/master/LICENSE" target="_blank">free</a>.
+      </p>
+    </div>
+  </section>
+
+  <div id="eca-tip" class="eca-tip" popover="manual"></div>
+  <script>
+    (function () {
+      var tip = document.getElementById("eca-tip");
+      if (!tip || !tip.showPopover) return;
+      function show(e) {
+        var el = e.currentTarget, r = el.getBoundingClientRect();
+        tip.textContent = el.dataset.tip;
+        tip.style.left = r.left + r.width / 2 + "px";
+        tip.style.top = r.top - 8 + "px";
+        tip.showPopover();
+      }
+      function hide() { if (tip.matches(":popover-open")) tip.hidePopover(); }
+      document.querySelectorAll(".eca-marquee__avatar-link").forEach(function (a) {
+        a.addEventListener("mouseenter", show);
+        a.addEventListener("focus", show);
+        a.addEventListener("mouseleave", hide);
+        a.addEventListener("blur", hide);
+      });
+    })();
+  </script>
+
       <main class="md-main" data-md-component="main">
         <div class="md-main__inner md-grid">
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -376,26 +3261,14 @@
   
   
   
-    
-    
-    
-    
+    <li class="md-nav__item md-nav__item--active">
       
-        
-        
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
+      <a href="." class="md-nav__link md-nav__link--active">
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
-            
   
   
   <span class="md-ellipsis">
@@ -404,13 +3277,50 @@
   </span>
   
 
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Documentation
+    
+  </span>
+  
+
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_1">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
-            Home
+            Documentation
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -418,140 +3328,20 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Overview
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="install/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Overview
+    Install
     
   </span>
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#rationale" class="md-nav__link">
-    <span class="md-ellipsis">
-      Rationale
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quickstart" class="md-nav__link">
-    <span class="md-ellipsis">
-      Quickstart
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Quickstart">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-install-the-editor-plugin" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Install the editor plugin
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-set-up-your-first-model" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Set up your first model
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-start-chatting-completing-rewriting" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Start chatting, completing, rewriting
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#roadmap" class="md-nav__link">
-    <span class="md-ellipsis">
-      Roadmap
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#be-the-first-to-sponsor-the-project" class="md-nav__link">
-    <span class="md-ellipsis">
-      Be the first to sponsor the project 💖
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#contributing" class="md-nav__link">
-    <span class="md-ellipsis">
-      Contributing
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -564,8 +3354,68 @@
   
   
     <li class="md-nav__item">
-      <a href="configuration/" class="md-nav__link">
+      <a href="features/" class="md-nav__link">
         
+  
+  
+  <span class="md-ellipsis">
+    Features
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Workflows
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
   
   
   <span class="md-ellipsis">
@@ -574,11 +3424,15 @@
   </span>
   
 
-      </a>
-    </li>
-  
-
-              
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Configuration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -587,12 +3441,12 @@
   
   
     <li class="md-nav__item">
-      <a href="models/" class="md-nav__link">
+      <a href="config/introduction/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Models
+    Introduction
     
   </span>
   
@@ -610,17 +3464,416 @@
   
   
     <li class="md-nav__item">
-      <a href="development/" class="md-nav__link">
+      <a href="config/models/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Development
+    Providers / Models
     
   </span>
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="config/tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tools / Approval
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="config/variants/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Variants
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="config/skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Skills
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="config/rules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Rules
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="config/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Commands
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="config/agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Agents / Subagents
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="config/hooks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hooks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="config/completion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Completion
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="config/rewrite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Rewrite
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="config/chat-inline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Inline chat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="config/context-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Context Management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="config/plugins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Plugins / Marketplace
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="config/metrics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Metrics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="config/remote/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Remote
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="config/network/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Network / Enterprise
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="config/sandboxing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sandboxing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="config/examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    User Examples
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -638,7 +3891,30 @@
   
   
   <span class="md-ellipsis">
-    Protocol
+    ECA Protocol
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="read-chat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    read-chat CLI
     
   </span>
   
@@ -686,12 +3962,12 @@
   
   
     <li class="md-nav__item">
-      <a href="features/" class="md-nav__link">
+      <a href="/install/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Features
+    Install
     
   </span>
   
@@ -708,12 +3984,12 @@
   
   
     <li class="md-nav__item">
-      <a href="installation/" class="md-nav__link">
+      <a href="/config/introduction/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Installation
+    Configuration
     
   </span>
   
@@ -730,12 +4006,12 @@
   
   
     <li class="md-nav__item">
-      <a href="models/" class="md-nav__link">
+      <a href="/protocol/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Models
+    Protocol
     
   </span>
   
@@ -752,12 +4028,12 @@
   
   
     <li class="md-nav__item">
-      <a href="examples/" class="md-nav__link">
+      <a href="/troubleshooting/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Examples
+    Troubleshooting
     
   </span>
   
@@ -774,34 +4050,34 @@
   
   
     <li class="md-nav__item">
-      <a href="https://github.com/sponsors/ericdallo" class="md-nav__link">
+      <a href="https://plugins.eca.dev" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Plugins
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/sponsors/editor-code-assistant" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     Support Us
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="CHANGELOG/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Changelog
     
   </span>
   
@@ -819,103 +4095,19 @@
             
             
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On This Page">
   
   
   
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#rationale" class="md-nav__link">
-    <span class="md-ellipsis">
-      Rationale
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quickstart" class="md-nav__link">
-    <span class="md-ellipsis">
-      Quickstart
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Quickstart">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-install-the-editor-plugin" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Install the editor plugin
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-set-up-your-first-model" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Set up your first model
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-start-chatting-completing-rewriting" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Start chatting, completing, rewriting
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#roadmap" class="md-nav__link">
-    <span class="md-ellipsis">
-      Roadmap
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#be-the-first-to-sponsor-the-project" class="md-nav__link">
-    <span class="md-ellipsis">
-      Be the first to sponsor the project 💖
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#contributing" class="md-nav__link">
-    <span class="md-ellipsis">
-      Contributing
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -926,127 +4118,6 @@
           
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
-                
-                  
-
-
-  
-  
-
-
-<p><a href="https://eca.dev"><img src="images/logo.png" width="110" align="right"></a></p>
-<p><a href="https://github.com/editor-code-assistant/eca/releases/latest"><img alt="GitHub Release" src="https://img.shields.io/github/v/release/editor-code-assistant/eca?display_name=release&amp;style=flat-square" /></a>
-<a href="https://github.com/editor-code-assistant/eca/stargazers"><img alt="GitHub Stars" title="Total number of GitHub stars the ECA project has received"
-src="https://img.shields.io/github/stars/editor-code-assistant/eca?style=flat-square&logo=github&color=f1c40f&labelColor=555555"/></a>
-<a href="https://github.com/editor-code-assistant/eca/releases/latest"><img alt="Downloads" src="https://img.shields.io/github/downloads/editor-code-assistant/eca/total.svg?style=flat-square" /></a>
-<a href="https://clojurians.slack.com/archives/C093426FPUG"><img alt="Chat community" src="https://img.shields.io/badge/Slack-chat-blue?style=flat-square" /></a></p>
-<h1 id="eca-editor-code-assistant">ECA (Editor Code Assistant)<a class="headerlink" href="#eca-editor-code-assistant" title="Permanent link">#</a></h1>
-<table align="center">
-  <tbody>
-    <tr><td align="center"><a href="https://github.com/editor-code-assistant/eca-emacs">eca-emacs<img src="https://raw.githubusercontent.com/editor-code-assistant/eca-emacs/master/demo.gif" width="720"/></a></td></tr>
-    <tr><td align="center"><a href="https://github.com/editor-code-assistant/eca-vscode">eca-vscode<img src="https://raw.githubusercontent.com/editor-code-assistant/eca-vscode/master/demo.gif" width="720"/></a></td></tr>
-    <tr><td align="center"><a href="https://github.com/editor-code-assistant/eca-intellij">eca-intellij<img src="https://raw.githubusercontent.com/editor-code-assistant/eca-intellij/master/demo.gif" width="720"/></a></td></tr>
-  </tbody>
-</table>
-
-<hr>
-<p align="center">
-  <a href="https://eca.dev/installation"><strong>installation</strong></a> •
-  <a href="https://eca.dev/features"><strong>features</strong></a> •
-  <a href="https://eca.dev/configuration"><strong>configuration</strong></a> •
-  <a href="https://eca.dev/models"><strong>models</strong></a> •
-  <a href="https://eca.dev/protocol"><strong>protocol</strong></a>
-  <a href="https://eca.dev/troubleshooting"><strong>troubleshooting</strong></a>
-</p>
-<hr>
-
-<ul>
-<li><img alt="📄" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f4c4.svg" title=":page_facing_up:" /> <strong>Editor-agnostic</strong>: protocol for any editor to integrate.</li>
-<li><img alt="⚙" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/2699.svg" title=":gear:" /> <strong>Single configuration</strong>: Configure eca making it work the same in any editor via global or local configs.</li>
-<li><img alt="➿" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/27bf.svg" title=":loop:" /> <strong>Chat</strong> interface: ask questions, review code, work together to code.</li>
-<li><img alt="☕" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/2615.svg" title=":coffee:" /> <strong>Agentic</strong>: let LLM work as an agent with its native tools and MCPs you can configure.</li>
-<li><img alt="💉" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f489.svg" title=":syringe:" /> <strong>Context</strong>: support: giving more details about your code to the LLM, including MCP resources and prompts.</li>
-<li><img alt="🚀" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f680.svg" title=":rocket:" /> <strong>Multi models</strong>: Login to OpenAI, Anthropic, Copilot, Ollama local models and many more.</li>
-<li><img alt="📈" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f4c8.svg" title=":chart_with_upwards_trend:" /> <strong>OpenTelemetry</strong>: Export metrics of tools, prompts, server usage.</li>
-</ul>
-<h2 id="rationale">Rationale<a class="headerlink" href="#rationale" title="Permanent link">#</a></h2>
-<p><img src="images/rationale.jpg" width="500"></p>
-<p>A Free and OpenSource editor-agnostic tool that aims to easily link LLMs &lt;-&gt; Editors, giving the best UX possible for AI pair programming using a well-defined protocol. The server is written in Clojure and heavily inspired by the <a href="https://microsoft.github.io/language-server-protocol/">LSP protocol</a> which is a success case for this kind of integration.</p>
-<p>The protocol makes it easier for other editors to integrate, and having a server in the middle helps add more features quickly, some examples:
-- Tool call management
-- Multiple LLM interaction 
-- Telemetry of feature usage
-- Single way to configure for any editor
-- Same UX, easy to onboard people and teams. </p>
-<p>With the LLMs models race, the differences between them tend to be irrelevant in the future, but UX on how to edit code or plan changes is something that will exist; ECA helps editors focus on that.</p>
-<p><strong>How it works</strong>: Editors spawn the server via <code>eca server</code> and communicate via stdin/stdout, similar to LSPs. Supported editors already download the latest server on start and require no extra configuration.</p>
-<h2 id="quickstart">Quickstart<a class="headerlink" href="#quickstart" title="Permanent link">#</a></h2>
-<h3 id="1-install-the-editor-plugin">1. Install the editor plugin<a class="headerlink" href="#1-install-the-editor-plugin" title="Permanent link">#</a></h3>
-<p>Install the plugin for your editor and ECA server will be downloaded and started automatically:</p>
-<ul>
-<li><a href="https://github.com/editor-code-assistant/eca-emacs">Emacs</a></li>
-<li><a href="https://github.com/editor-code-assistant/eca-vscode">VsCode</a></li>
-<li><a href="https://github.com/editor-code-assistant/eca-nvim">Vim</a></li>
-<li><a href="https://github.com/editor-code-assistant/eca-intellij">Intellij</a></li>
-</ul>
-<h3 id="2-set-up-your-first-model">2. Set up your first model<a class="headerlink" href="#2-set-up-your-first-model" title="Permanent link">#</a></h3>
-<p>To use ECA, you need to configure at least one model / provider (<em>tip: Github Copilot offer free models!</em>).</p>
-<p>See the <a href="https://eca.dev/models#adding-and-configuring-models">Models documentation</a> for detailed instructions:</p>
-<ol>
-<li>Type in the chat <code>/login</code>.</li>
-<li>Choose your provider</li>
-<li>Follow the steps to configure the key or auth for your provider.</li>
-<li>This will add to the global config.json the config for that provider.</li>
-</ol>
-<p>or <a href="https://eca.dev/models/">configure manually</a>.</p>
-<p><strong>Note</strong>: For other providers or custom models, see the <a href="https://eca.dev/models#custom-providers">custom providers documentation</a>.</p>
-<h3 id="3-start-chatting-completing-rewriting">3. Start chatting, completing, rewriting<a class="headerlink" href="#3-start-chatting-completing-rewriting" title="Permanent link">#</a></h3>
-<p>Once your model is configured, you can start using ECA's features interface in your editor to ask questions, review code, and work together on your project.</p>
-<p>Type <code>/init</code> to ask ECA to create/update a <a href="http://agents.md">AGENTS.md</a> file, which will help ECA in the next iterations have good context about your project standards.</p>
-<h2 id="roadmap">Roadmap<a class="headerlink" href="#roadmap" title="Permanent link">#</a></h2>
-<p>Check the planned work <a href="https://github.com/orgs/editor-code-assistant/projects/1">here</a>.</p>
-<h2 id="be-the-first-to-sponsor-the-project">Be the first to sponsor the project 💖<a class="headerlink" href="#be-the-first-to-sponsor-the-project" title="Permanent link">#</a></h2>
-<p>Consider <a href="https://github.com/sponsors/ericdallo">sponsoring the project</a> to help grow faster, the support helps to keep the project going, being updated and maintained!</p>
-<h2 id="contributing">Contributing<a class="headerlink" href="#contributing" title="Permanent link">#</a></h2>
-<p>Contributions are very welcome, please open an issue for discussion or a pull request.
-For developer details, check <a href="https://eca.dev/development">development docs</a>.</p>
-<p>These are all the incredible people who helped make ECA better!</p>
-<p><a href="https://github.com/editor-code-assistant/eca/graphs/contributors"><img src="https://opencollective.com/editor-code-assistant/contributors.svg?width=890&button=false" alt="Code Contributors" style="max-width:100%;"></a></p>
-
-
-
-
-
-
-
-  
-    
-  
-  
-
-
-  <aside class="md-source-file">
-    
-      
-  <span class="md-source-file__fact">
-    <span class="md-icon" title="Last update">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
-    </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 17, 2026 00:26:55 UTC">January 17, 2026</span>
-  </span>
-
-    
-    
-    
-    
-  </aside>
-
-
-  
-
-
-
-
                 
               </article>
             </div>
@@ -1059,19 +4130,21 @@ For developer details, check <a href="https://eca.dev/development">development d
       
         <footer class="md-footer">
   
+
+  
+  
+
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
-  
-  
-    Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
-    </a>
-  
-</div>
-      
-        <div class="md-social">
+        
+          <div class="md-copyright__highlight">
+            Copyright &copy; 2026 ECA Contributors. Free & Open Source.
+            <span class="eca-footer-credit">Icons courtesy of <a href="https://lucide.dev" target="_blank" rel="noopener">Lucide</a>.</span>
+          </div>
+        
+      </div>
+      <div class="md-social">
   
     
     
@@ -1084,8 +4157,29 @@ For developer details, check <a href="https://eca.dev/development">development d
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1M480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2m-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3m-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1"/></svg>
     </a>
   
-</div>
+    
+    
+    
+    
       
+      
+    
+    <a href="https://clojurians.slack.com/archives/C093426FPUG" target="_blank" rel="noopener" title="clojurians.slack.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M94.12 315.1c0 25.9-21.16 47.06-47.06 47.06S0 341 0 315.1s21.16-47.06 47.06-47.06h47.06zm23.72 0c0-25.9 21.16-47.06 47.06-47.06s47.06 21.16 47.06 47.06v117.84c0 25.9-21.16 47.06-47.06 47.06s-47.06-21.16-47.06-47.06zm47.06-188.98c-25.9 0-47.06-21.16-47.06-47.06S139 32 164.9 32s47.06 21.16 47.06 47.06v47.06zm0 23.72c25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06H47.06C21.16 243.96 0 222.8 0 196.9s21.16-47.06 47.06-47.06zm188.98 47.06c0-25.9 21.16-47.06 47.06-47.06S448 171 448 196.9s-21.16 47.06-47.06 47.06h-47.06zm-23.72 0c0 25.9-21.16 47.06-47.06 47.06s-47.06-21.16-47.06-47.06V79.06c0-25.9 21.16-47.06 47.06-47.06s47.06 21.16 47.06 47.06zM283.1 385.88c25.9 0 47.06 21.16 47.06 47.06S309 480 283.1 480s-47.06-21.16-47.06-47.06v-47.06zm0-23.72c-25.9 0-47.06-21.16-47.06-47.06s21.16-47.06 47.06-47.06h117.84c25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/sponsors/editor-code-assistant" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="m47.6 300.4 180.7 168.7c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9l180.7-168.7c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141-45.6-7.6-92 7.3-124.6 39.9l-12 12-12-12c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5"/></svg>
+    </a>
+  
+</div>
     </div>
   </div>
 </footer>
@@ -1098,11 +4192,17 @@ For developer details, check <a href="https://eca.dev/development">development d
     
     
       
-      <script id="__config" type="application/json">{"base": ".", "features": ["navigation.tabs", "content.code.copy", "content.code.select"], "search": "assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": ".", "features": ["navigation.tabs", "toc.follow", "content.code.copy", "content.code.select"], "search": "assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
+  
       <script src="assets/javascripts/bundle.56ea9cef.min.js"></script>
       
+        <script src="js/toc-hash.js"></script>
+      
     
+  
+  
+
   </body>
 </html>

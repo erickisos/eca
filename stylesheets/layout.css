@@ -1,7 +1,10 @@
+/* Header, tabs bar and footer stay teal to match the homepage hero.
+   Hover and focus accents are black */
 :root {
   --md-primary-fg-color: #007a94;
-  --md-accent-fg-color: #026378;
-  --md-default-fg-color--light: #026378;
+  --md-accent-fg-color: #000000;
+  --md-accent-fg-color--transparent: rgba(0, 0, 0, 0.07);
+  --eca-teal: #026378;
 }
 
 .md-footer {
@@ -9,12 +12,167 @@
   background-color: var(--md-default-fg-color);
 }
 
+/* ── Footer extra section ── */
+.eca-footer-extra {
+  background: #005a6e;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding: 2.5rem 0 2rem;
+}
+
+[data-md-color-scheme="slate"] .eca-footer-extra {
+  background: #0e1a22;
+}
+
+.eca-footer-extra__inner {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.eca-footer-extra__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.75rem;
+}
+
+.eca-footer-extra__logo {
+  width: 28px;
+  height: 28px;
+  filter: brightness(0) invert(1);
+}
+
+.eca-footer-extra__brand-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.02em;
+}
+
+.eca-footer-extra__tagline {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.eca-footer-extra__tagline a {
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.eca-footer-extra__tagline a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.eca-footer-extra__heading {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin: 0 0 0.75rem;
+}
+
+.eca-footer-extra__links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.eca-footer-extra__links li {
+  margin: 0;
+}
+
+.eca-footer-extra__links a {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.eca-footer-extra__links a:hover {
+  color: #fff;
+}
+
+/* Footer meta tweaks */
+.md-footer-meta {
+  background: rgba(0,0,0,0.15);
+}
+
+[data-md-color-scheme="slate"] .md-footer-meta {
+  background: rgba(0,0,0,0.25);
+}
+
+/* Responsive footer */
+@media (max-width: 768px) {
+  .eca-footer-extra__inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .eca-footer-extra__col:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 480px) {
+  .eca-footer-extra__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .eca-footer-extra__col:first-child {
+    grid-column: auto;
+  }
+}
+
 .md-grid {
   max-width: 70rem;
 }
 
-.md-typeset a {
-  color: #026378;
+/* Body links: text color, semibold, medium gray underline that
+   darkens to the text color on hover */
+.md-typeset a:not(.headerlink) {
+  color: var(--md-default-fg-color);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--eca-link-underline-color);
+  text-underline-offset: 0.25em;
+}
+
+.md-typeset a:not(.headerlink):focus,
+.md-typeset a:not(.headerlink):hover {
+  color: var(--md-default-fg-color);
+  text-decoration-color: var(--md-default-fg-color);
+}
+
+/* Content tab labels keep the teal they had before the neutral palette */
+.md-typeset .tabbed-labels > label {
+  color: var(--eca-teal);
+}
+
+/* Content tab labels wrap their text in a link. Keep Material's tab
+   styling instead of the body link style */
+.md-typeset .tabbed-labels > label > a {
+  font-weight: inherit;
+  text-decoration: none;
+}
+
+.md-typeset a:focus code,
+.md-typeset a:hover code {
+  background-color: var(--md-code-bg-color);
+}
+
+.md-typeset .headerlink:focus,
+.md-typeset .headerlink:hover,
+.md-typeset :target > .headerlink {
+  color: var(--md-default-fg-color);
 }
 
 .tabbed-content {
@@ -23,4 +181,409 @@
   padding: 0.5em;
   border-bottom-right-radius: 0.3em;
   border-bottom-left-radius: 0.3em;
+}
+
+:root {
+  --eca-heading-fg-color: #333333;
+  --eca-nav-fg-color: #555555;
+  --eca-nav-top-fg-color: rgb(27, 27, 27);
+  --eca-nav-nested-fg-color: rgb(67, 67, 67);
+  --eca-nav-active-bg-color: hsl(0, 0%, 96%);
+  /* Both sidebars: space below the heading */
+  --eca-nav-group-gap: 0.7rem;
+  /* Both sidebars: width and colors of the left rule. The hover color
+     is halfway between the baseline (black at 14%) and active (black)
+     colors */
+  --eca-nav-rule-width: 0.05rem;
+  --eca-nav-rule-color: #00000024;
+  --eca-nav-rule-hover-color: rgba(0, 0, 0, 0.44);
+  --eca-nav-rule-active-color: #000000;
+  /* Both sidebars: vertical padding of the headings */
+  --eca-nav-heading-padding-block: 0.52em;
+  /* Both sidebars: height of every one-line item, top-level and nested
+     alike (38px). The padding is what remains after the line height */
+  --eca-nav-item-height: 1.9rem;
+  /* Both sidebars: extra indent per nesting level. Any ch is measured
+     in the link's own font, where 1ch is about 9px */
+  --eca-nav-indent-step: calc(0.6rem + 0.5ch);
+  /* Both sidebars: size of the arrow on collapsible entries. It is
+     Material's own arrow, which points down when the entry is open */
+  --eca-icon-size: 0.8rem;
+  /* Both sidebars: space between the left rule and the text of a
+     top-level item. Nested items add --eca-nav-indent-step per level */
+  --eca-nav-text-inset: calc(1.3em + 0.2rem);
+  /* Right sidebar width: 10% over Material's 12.1rem so fewer long
+     table-of-contents entries wrap, plus 0.9rem (2ch of the 14px nav
+     text) for more room still. The extra width grows toward the
+     article, so the right edge stays put */
+  --eca-toc-width: calc(13.3rem + 0.9rem);
+  --eca-link-underline-color: #9e9e9e;
+}
+
+/* Article column: fixed max width and body text size */
+.md-content__inner {
+  max-width: 700px;
+}
+
+.md-content__inner.md-typeset {
+  font-size: 0.85rem;
+  line-height: 1.7;
+}
+
+/* Headings: one weight and color. Sizes are in rem so they don't
+   change with the article text size. Pixel sizes assume the default
+   20px root */
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4,
+.md-typeset h5,
+.md-typeset h6 {
+  color: var(--eca-heading-fg-color);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+.md-typeset h1 {
+  font-size: 1.8rem; /* 36px */
+}
+
+.md-typeset h2 {
+  font-size: 1.2rem; /* 24px */
+}
+
+.md-typeset h3 {
+  font-size: 1rem; /* 20px */
+}
+
+.md-typeset h4 {
+  font-size: 1.125rem; /* 22.5px */
+}
+
+.md-typeset h5,
+.md-typeset h6 {
+  font-size: 0.9rem; /* 18px */
+}
+
+/* Sidebars: items indented --eca-nav-text-inset from the section
+   heading, with a faint left rule that lines up with the heading.
+   Vertical padding replaces Material's .625em top margin so the rule
+   is continuous, and makes every one-line item --eca-nav-item-height
+   tall. Desktop layouts only, the mobile drawer keeps Material's
+   styling.
+
+   Nested lists drop Material's .6rem left padding, and its .4rem bottom
+   padding with the -.4rem nav margin that offsets it. Their links
+   indent the text by --eca-nav-depth steps of --eca-nav-indent-step
+   instead, so the rule stays at one x position as an unbroken line.
+   The active item's segment is dark, and so is the segment of its
+   top-level ancestor */
+@media screen and (min-width: 76.25em) {
+  .md-nav--primary .md-nav__item:not(.md-nav__item--section) > .md-nav__link {
+    border-left: var(--eca-nav-rule-width) solid var(--eca-nav-rule-color);
+    margin-top: 0;
+    padding-block: calc((var(--eca-nav-item-height) - 1lh) / 2);
+    padding-left: calc(var(--eca-nav-text-inset) + var(--eca-nav-depth, 0) * var(--eca-nav-indent-step));
+  }
+
+  .md-nav--primary .md-nav__item:not(.md-nav__item--section) > .md-nav__link:not(.md-nav__link--active):is(:hover, :focus-visible) {
+    border-left-color: var(--eca-nav-rule-hover-color);
+  }
+
+  .md-nav--primary .md-nav__item:not(.md-nav__item--section) > .md-nav__link--active,
+  .md-nav--primary .md-nav__item--section > .md-nav > .md-nav__list > .md-nav__item:has(.md-nav__link--active) > .md-nav__link {
+    border-left-color: var(--eca-nav-rule-active-color);
+  }
+
+  /* Only collapsible groups count as nesting. A group that Material
+     renders as a sub-heading (--section) keeps Material's layout */
+  .md-nav--primary .md-nav__item--nested:not(.md-nav__item--section) > .md-nav {
+    margin-bottom: 0;
+  }
+
+  /* Material's collapse animation keeps a .4rem minimum row, hidden by
+     the -.4rem margin removed above. Without the margin it would leave
+     a gap under a collapsed group */
+  .md-nav--primary .md-nav__item--nested:not(.md-nav__item--section) > .md-nav__toggle ~ .md-nav {
+    grid-template-rows: minmax(0, 0fr);
+  }
+
+  .md-nav--primary .md-nav__item--nested:not(.md-nav__item--section) > .md-nav__toggle:is(:checked, .md-toggle--indeterminate) ~ .md-nav {
+    grid-template-rows: minmax(0, 1fr);
+  }
+
+  .md-nav--primary .md-nav__item--nested:not(.md-nav__item--section) > .md-nav > .md-nav__list {
+    padding-left: 0;
+    padding-bottom: 0;
+    --eca-nav-depth: 1;
+  }
+
+  .md-nav--primary .md-nav__item--nested:not(.md-nav__item--section) .md-nav__item--nested:not(.md-nav__item--section) > .md-nav > .md-nav__list {
+    --eca-nav-depth: 2;
+  }
+
+  .md-nav--primary .md-nav__item--nested:not(.md-nav__item--section) .md-nav__item--nested:not(.md-nav__item--section) .md-nav__item--nested:not(.md-nav__item--section) > .md-nav > .md-nav__list {
+    --eca-nav-depth: 3;
+  }
+}
+
+@media screen and (min-width: 60em) {
+  .md-nav--secondary .md-nav__item > .md-nav__link {
+    border-left: var(--eca-nav-rule-width) solid var(--eca-nav-rule-color);
+    margin-top: 0;
+    padding-block: calc((var(--eca-nav-item-height) - 1lh) / 2);
+    padding-left: calc(var(--eca-nav-text-inset) + var(--eca-nav-depth, 0) * var(--eca-nav-indent-step));
+  }
+
+  .md-nav--secondary .md-nav__item > .md-nav__link:not(.md-nav__link--active):is(:hover, :focus-visible) {
+    border-left-color: var(--eca-nav-rule-hover-color);
+  }
+
+  .md-nav--secondary .md-nav__item > .md-nav__link--active,
+  .md-nav--secondary > .md-nav__list > .md-nav__item:has(.md-nav__link--active) > .md-nav__link {
+    border-left-color: var(--eca-nav-rule-active-color);
+  }
+
+  .md-nav--secondary .md-nav__list .md-nav {
+    margin-bottom: 0;
+  }
+
+  /* Material sets the width on the sidebar and separately caps its
+     content at 11.5rem through the inner padding. Both follow
+     --eca-toc-width, keeping Material's .6rem gap */
+  .md-sidebar--secondary {
+    width: var(--eca-toc-width);
+  }
+
+  [dir=ltr] .md-sidebar--secondary .md-sidebar__inner {
+    padding-right: calc(100% - (var(--eca-toc-width) - 0.6rem));
+  }
+
+  /* "On This Page" heading: the same spacing as the left sidebar
+     heading */
+  .md-nav--secondary .md-nav__title {
+    margin-bottom: calc(var(--eca-nav-group-gap) / 2);
+    padding-block: var(--eca-nav-heading-padding-block);
+  }
+
+  .md-nav--secondary .md-nav__list .md-nav__list {
+    padding-left: 0;
+    padding-bottom: 0;
+    --eca-nav-depth: 1;
+  }
+
+  .md-nav--secondary .md-nav__list .md-nav__list .md-nav__list {
+    --eca-nav-depth: 2;
+  }
+
+  .md-nav--secondary .md-nav__list .md-nav__list .md-nav__list .md-nav__list {
+    --eca-nav-depth: 3;
+  }
+}
+
+/* Sidebars: black and grays only. Section headings match the article
+   headings, items are dark gray, hover is black */
+.md-nav .md-nav__title,
+.md-nav .md-nav__item--section > .md-nav__link,
+.md-nav--lifted > .md-nav__list > .md-nav__item > .md-nav__link {
+  color: var(--eca-heading-fg-color);
+}
+
+.md-nav__link,
+.md-nav__link--passed {
+  color: var(--eca-nav-fg-color);
+}
+
+.md-nav__link[for]:focus,
+.md-nav__link[for]:hover,
+.md-nav__link[href]:focus,
+.md-nav__link[href]:hover,
+.md-nav--primary .md-nav__item--active > .md-nav__link:focus,
+.md-nav--primary .md-nav__item--active > .md-nav__link:hover {
+  color: #000000;
+}
+
+/* Sidebars: Material gives every nav a -.4rem bottom margin and its
+   list a .4rem bottom padding. In the page they cancel out, but in a
+   sidebar's scroll area the padding sticks out past the content box.
+   A menu that fits then scrolls by 8px until Material sizes the
+   sidebar, and macOS flashes its scrollbar on every page load */
+@media screen and (min-width: 60em) {
+  .md-sidebar--secondary .md-nav {
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 76.25em) {
+  .md-sidebar--primary .md-nav {
+    margin-bottom: 0;
+  }
+}
+
+/* Left sidebar collapsible groups: Material's arrow moves from the
+   right end to the left of the label, centered in the space between the
+   left rule and the text. The icon takes the label's font size so em
+   and ch in the inset and indent tokens resolve as they do for the
+   label. Desktop only, in the mobile drawer the arrow stays on the
+   right and opens the next panel */
+@media screen and (min-width: 76.25em) {
+  .md-nav--primary .md-nav__item--nested:not(.md-nav__item--section) > .md-nav__link {
+    position: relative;
+  }
+
+  .md-nav--primary .md-nav__item--nested:not(.md-nav__item--section) > .md-nav__link .md-nav__icon {
+    position: absolute;
+    top: 50%;
+    left: calc(var(--eca-nav-depth, 0) * var(--eca-nav-indent-step) + (var(--eca-nav-text-inset) - var(--eca-icon-size)) / 2);
+    width: var(--eca-icon-size);
+    height: var(--eca-icon-size);
+    margin: 0;
+    font-size: inherit;
+    transform: translate(2px, -50%);
+  }
+}
+
+/* Left sidebar heading ("Documentation"): flush with the left rule
+   and never a left border, spaced the same as the "On This Page"
+   heading */
+@media screen and (min-width: 76.25em) {
+  .md-nav--primary .md-nav__item--section > .md-nav__link,
+  .md-nav--lifted > .md-nav__list > .md-nav__item > .md-nav__link {
+    border-left: none;
+    margin-bottom: calc(var(--eca-nav-group-gap) / 2);
+    padding-block: var(--eca-nav-heading-padding-block);
+    padding-left: 0;
+  }
+}
+
+/* Top-level links (pages in the left sidebar, h2 entries in the table
+   of contents) are medium weight and darker than nested links. Nested
+   links are regular weight. :where() keeps these selectors weak so the
+   hover and active link rules still win */
+:where(.md-nav--primary .md-nav__item--section > .md-nav > .md-nav__list > .md-nav__item) > .md-nav__link,
+:where(.md-nav--secondary > .md-nav__list > .md-nav__item) > .md-nav__link {
+  color: var(--eca-nav-top-fg-color);
+  font-weight: 500;
+}
+
+:where(.md-nav--primary .md-nav__item--section > .md-nav .md-nav .md-nav__item) > .md-nav__link,
+:where(.md-nav--secondary .md-nav .md-nav__item) > .md-nav__link {
+  color: var(--eca-nav-nested-fg-color);
+  font-weight: 400;
+}
+
+/* Active page and current table-of-contents entry: a light gray
+   background and the dark segment of the left rule mark it. Its text
+   keeps the color and weight of other links at its level. These rules
+   set the color explicitly because Material colors active links with
+   more specific selectors */
+.md-nav__item .md-nav__link--active {
+  background-color: var(--eca-nav-active-bg-color);
+  color: var(--eca-nav-top-fg-color);
+}
+
+.md-nav--primary .md-nav__item--section > .md-nav .md-nav .md-nav__item > .md-nav__link--active:not(:focus, :hover),
+.md-nav--secondary .md-nav .md-nav__item > .md-nav__link--active:not(:focus, :hover) {
+  color: var(--eca-nav-nested-fg-color);
+}
+
+.md-nav__item .md-nav__link--active code {
+  color: inherit;
+}
+
+/* Header: larger logo with the title closer to it. Below 76.25em
+   Material hides the logo, so the title keeps its default margin */
+/* Less vertical padding keeps the header at Material's 2.4rem height:
+   1.5rem logo + 2 x 0.25rem padding + 2 x 0.2rem margin */
+.md-header__button.md-logo {
+  padding-block: 0.25rem;
+}
+
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+  height: 1.5rem;
+}
+
+@media screen and (min-width: 76.25em) {
+  [dir=ltr] .md-header__title {
+    margin-left: 0.3rem;
+  }
+}
+
+/* Tabs bar: links one pixel larger and brighter */
+.md-tabs__link {
+  font-size: 0.75rem;
+  opacity: 0.9;
+}
+
+/* Lucide icons (docs/overrides/.icons/lucide) scale with the font size
+   of their container, like the emoji they replaced. Stroke 1.5 instead
+   of Lucide's 2 draws about a 1px line at these sizes */
+.lucide {
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  stroke-width: 1.5;
+}
+
+/* Footer copyright: the credit wraps below the copyright text as one
+   unit instead of breaking mid-phrase */
+.md-copyright__highlight {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 0.5em;
+}
+
+.eca-footer-credit {
+  white-space: nowrap;
+}
+
+/* Right-hand table of contents: only the top-level entry holding the
+   active link shows its subsections. js/toc-collapse.js adds
+   the eca-toc-collapse class, so these rules apply only when
+   extra.toc_collapse is on in mkdocs.yml. Its arrow buttons set
+   eca-toc--open or eca-toc--closed to override that for one entry */
+.md-sidebar--secondary .eca-toc-collapse > .md-nav__item:has(> .eca-toc-toggle) {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+}
+
+.md-sidebar--secondary .eca-toc-collapse > .md-nav__item > .md-nav {
+  grid-column: 1 / -1;
+}
+
+.md-sidebar--secondary .eca-toc-collapse > .md-nav__item:not(:has(.md-nav__link--active)):not(.eca-toc--open) > .md-nav,
+.md-sidebar--secondary .eca-toc-collapse > .md-nav__item.eca-toc--closed > .md-nav {
+  display: none;
+}
+
+.eca-toc-toggle {
+  display: flex;
+  padding: 0.2em;
+  color: var(--eca-nav-fg-color);
+  background: none;
+  border: none;
+  border-radius: 0.1rem;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.eca-toc-toggle:focus-visible,
+.eca-toc-toggle:hover {
+  color: #000000;
+  opacity: 1;
+}
+
+.eca-toc-toggle__icon {
+  width: var(--eca-icon-size);
+  height: var(--eca-icon-size);
+  background-color: currentcolor;
+  -webkit-mask: var(--md-nav-icon--next) center / contain no-repeat;
+  mask: var(--md-nav-icon--next) center / contain no-repeat;
+  transition: transform 0.25s;
+}
+
+.eca-toc-toggle[aria-expanded="true"] .eca-toc-toggle__icon {
+  transform: rotate(90deg);
 }
